@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .phase-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        .team-section {
+            background: linear-gradient(rgba(0, 123, 255, 0.9), rgba(0, 123, 255, 0.8));
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Sección de encabezado con información del equipo -->
+    <header class="team-section text-white py-12 px-4">
+        <div class="max-w-5xl mx-auto text-center">
+            <h1 class="text-4xl font-bold mb-4">Fases del Desarrollo de Software</h1>
+            <h2 class="text-2xl font-light mb-8">Modelo Metodológico General</h2>
+            
+            <div class="mt-8 space-y-2">
+                <p class="text-lg italic">Equipo de Desarrollo:</p>
+                <p class="text-xl">
+                    Penélope Noreña Ramos • Hernán Darío Pérez Higuita • William Pérez Muñoz
+                </p>
+                <div class="mt-4">
+                    <p class="font-bold text-lg">Servicio Nacional de Aprendizaje - SENA</p>
+                    <p>Centro de Gestión de Mercados, Logística y Tecnologías de la Información</p>
+                    <p>Regional Distrito Capital</p>
+                    <p>Ficha: 2758315</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Introducción -->
+    <div class="bg-white shadow-lg mx-auto max-w-6xl -mt-8 rounded-lg p-8 mb-12">
+        <p class="text-xl text-gray-600 text-center">
+            El desarrollo de software sigue un conjunto de pasos metodológicos que aseguran la creación de soluciones tecnológicas efectivas, escalables y confiables. A continuación, las etapas clave que guían este proceso.
+        </p>
+    </div>
+
+    <!-- Contenido principal -->
+    <main class="max-w-6xl mx-auto px-4 mb-16">
+        <!-- Cuadrícula de fases -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Fase de Análisis -->
+            <div class="phase-card bg-blue-50 rounded-lg shadow-lg p-6 border-t-4 border-blue-500">
+                <div class="flex items-center mb-4">
+                    <span class="text-3xl mr-3">1️⃣</span>
+                    <h3 class="text-xl font-bold text-gray-800">Análisis de Requisitos</h3>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-semibold text-blue-700">Objetivo</h4>
+                        <p class="text-gray-600">Entender qué necesita el cliente.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-blue-700">Actividades</h4>
+                        <ul class="list-disc list-inside text-gray-600">
+                            <li>Entrevistas con usuarios clave</li>
+                            <li>Definición y priorización de requisitos</li>
+                            <li>Creación de historias de usuario</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-blue-700">Resultado</h4>
+                        <p class="text-gray-600">Documento detallado de requisitos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fase de Diseño -->
+            <div class="phase-card bg-green-50 rounded-lg shadow-lg p-6 border-t-4 border-green-500">
+                <div class="flex items-center mb-4">
+                    <span class="text-3xl mr-3">2️⃣</span>
+                    <h3 class="text-xl font-bold text-gray-800">Diseño del Sistema</h3>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-semibold text-green-700">Objetivo</h4>
+                        <p class="text-gray-600">Planificar la arquitectura y diseño del software.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-green-700">Actividades</h4>
+                        <ul class="list-disc list-inside text-gray-600">
+                            <li>Diseño de bases de datos</li>
+                            <li>Creación de prototipos y mockups</li>
+                            <li>Elaboración de diagramas UML</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-green-700">Resultado</h4>
+                        <p class="text-gray-600">Prototipos y arquitectura definida</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fase de Desarrollo -->
+            <div class="phase-card bg-yellow-50 rounded-lg shadow-lg p-6 border-t-4 border-yellow-500">
+                <div class="flex items-center mb-4">
+                    <span class="text-3xl mr-3">3️⃣</span>
+                    <h3 class="text-xl font-bold text-gray-800">Desarrollo</h3>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-semibold text-yellow-700">Objetivo</h4>
+                        <p class="text-gray-600">Construir el software mediante la programación.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-yellow-700">Actividades</h4>
+                        <ul class="list-disc list-inside text-gray-600">
+                            <li>Implementación de frontend y backend</li>
+                            <li>Integración de servicios y APIs</li>
+                            <li>Gestión de control de versiones</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-yellow-700">Resultado</h4>
+                        <p class="text-gray-600">Código funcional y documentado</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fase de Pruebas -->
+            <div class="phase-card bg-red-50 rounded-lg shadow-lg p-6 border-t-4 border-red-500">
+                <div class="flex items-center mb-4">
+                    <span class="text-3xl mr-3">4️⃣</span>
+                    <h3 class="text-xl font-bold text-gray-800">Pruebas</h3>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-semibold text-red-700">Objetivo</h4>
+                        <p class="text-gray-600">Detectar y corregir errores antes del despliegue.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-red-700">Actividades</h4>
+                        <ul class="list-disc list-inside text-gray-600">
+                            <li>Pruebas unitarias y funcionales</li>
+                            <li>Simulación de casos de uso reales</li>
+                            <li>Corrección de errores detectados</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-red-700">Resultado</h4>
+                        <p class="text-gray-600">Software estable y validado</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fase de Despliegue -->
+            <div class="phase-card bg-purple-50 rounded-lg shadow-lg p-6 border-t-4 border-purple-500">
+                <div class="flex items-center mb-4">
+                    <span class="text-3xl mr-3">5️⃣</span>
+                    <h3 class="text-xl font-bold text-gray-800">Despliegue</h3>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-semibold text-purple-700">Objetivo</h4>
+                        <p class="text-gray-600">Poner el software en producción.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-purple-700">Actividades</h4>
+                        <ul class="list-disc list-inside text-gray-600">
+                            <li>Configuración del entorno de producción</li>
+                            <li>Pruebas finales en servidores reales</li>
+                            <li>Implementación de medidas de seguridad</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-purple-700">Resultado</h4>
+                        <p class="text-gray-600">Software disponible para el cliente final</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fase de Mantenimiento -->
+            <div class="phase-card bg-gray-50 rounded-lg shadow-lg p-6 border-t-4 border-gray-500">
+                <div class="flex items-center mb-4">
+                    <span class="text-3xl mr-3">6️⃣</span>
+                    <h3 class="text-xl font-bold text-gray-800">Mantenimiento</h3>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-semibold text-gray-700">Objetivo</h4>
+                        <p class="text-gray-600">Garantizar la operación continua del software.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-700">Actividades</h4>
+                        <ul class="list-disc list-inside text-gray-600">
+                            <li>Resolución de problemas reportados</li>
+                            <li>Actualizaciones regulares</li>
+                            <li>Monitoreo del rendimiento</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-700">Resultado</h4>
+                        <p class="text-gray-600">Software estable y actualizado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pie de página -->
+        <footer class="text-center py-8 mt-12 text-gray-600 border-t border-gray-200">
+            <p class="font-bold mb-2">Casino La Fortuna</p>
+            <p>Fases del Desarrollo de Software</p>
+            <p class="mt-2">© 2024 - Todos los derechos reservados</p>
+        </footer>
+    </main>
+</body>
+</html>
