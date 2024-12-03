@@ -1,1859 +1,1770 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>documento</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="file:///c:\Users\William\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.15\crossnote\dependencies\katex\katex.min.css">
-    
-    <style>
-      code[class*=language-],
-      pre[class*=language-] {
-        color: #333;
-        background: 0 0;
-        font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
-        text-align: left;
-        white-space: pre;
-        word-spacing: normal;
-        word-break: normal;
-        word-wrap: normal;
-        line-height: 1.4;
-        -moz-tab-size: 8;
-        -o-tab-size: 8;
-        tab-size: 8;
-        -webkit-hyphens: none;
-        -moz-hyphens: none;
-        -ms-hyphens: none;
-        hyphens: none
-      }
-
-      pre[class*=language-] {
-        padding: .8em;
-        overflow: auto;
-        border-radius: 3px;
-        background: #f5f5f5
-      }
-
-      :not(pre)>code[class*=language-] {
-        padding: .1em;
-        border-radius: .3em;
-        white-space: normal;
-        background: #f5f5f5
-      }
-
-      .token.blockquote,
-      .token.comment {
-        color: #969896
-      }
-
-      .token.cdata {
-        color: #183691
-      }
-
-      .token.doctype,
-      .token.macro.property,
-      .token.punctuation,
-      .token.variable {
-        color: #333
-      }
-
-      .token.builtin,
-      .token.important,
-      .token.keyword,
-      .token.operator,
-      .token.rule {
-        color: #a71d5d
-      }
-
-      .token.attr-value,
-      .token.regex,
-      .token.string,
-      .token.url {
-        color: #183691
-      }
-
-      .token.atrule,
-      .token.boolean,
-      .token.code,
-      .token.command,
-      .token.constant,
-      .token.entity,
-      .token.number,
-      .token.property,
-      .token.symbol {
-        color: #0086b3
-      }
-
-      .token.prolog,
-      .token.selector,
-      .token.tag {
-        color: #63a35c
-      }
-
-      .token.attr-name,
-      .token.class,
-      .token.class-name,
-      .token.function,
-      .token.id,
-      .token.namespace,
-      .token.pseudo-class,
-      .token.pseudo-element,
-      .token.url-reference .token.variable {
-        color: #795da3
-      }
-
-      .token.entity {
-        cursor: help
-      }
-
-      .token.title,
-      .token.title .token.punctuation {
-        font-weight: 700;
-        color: #1d3e81
-      }
-
-      .token.list {
-        color: #ed6a43
-      }
-
-      .token.inserted {
-        background-color: #eaffea;
-        color: #55a532
-      }
-
-      .token.deleted {
-        background-color: #ffecec;
-        color: #bd2c00
-      }
-
-      .token.bold {
-        font-weight: 700
-      }
-
-      .token.italic {
-        font-style: italic
-      }
-
-      .language-json .token.property {
-        color: #183691
-      }
-
-      .language-markup .token.tag .token.punctuation {
-        color: #333
-      }
-
-      .language-css .token.function,
-      code.language-css {
-        color: #0086b3
-      }
-
-      .language-yaml .token.atrule {
-        color: #63a35c
-      }
-
-      code.language-yaml {
-        color: #183691
-      }
-
-      .language-ruby .token.function {
-        color: #333
-      }
-
-      .language-markdown .token.url {
-        color: #795da3
-      }
-
-      .language-makefile .token.symbol {
-        color: #795da3
-      }
-
-      .language-makefile .token.variable {
-        color: #183691
-      }
-
-      .language-makefile .token.builtin {
-        color: #0086b3
-      }
-
-      .language-bash .token.keyword {
-        color: #0086b3
-      }
-
-      pre[data-line] {
-        position: relative;
-        padding: 1em 0 1em 3em
-      }
-
-      pre[data-line] .line-highlight-wrapper {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: transparent;
-        display: block;
-        width: 100%
-      }
-
-      pre[data-line] .line-highlight {
-        position: absolute;
-        left: 0;
-        right: 0;
-        padding: inherit 0;
-        margin-top: 1em;
-        background: hsla(24,20%,50%,.08);
-        background: linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));
-        pointer-events: none;
-        line-height: inherit;
-        white-space: pre
-      }
-
-      pre[data-line] .line-highlight:before,
-      pre[data-line] .line-highlight[data-end]:after {
-        content: attr(data-start);
-        position: absolute;
-        top: .4em;
-        left: .6em;
-        min-width: 1em;
-        padding: 0 .5em;
-        background-color: hsla(24,20%,50%,.4);
-        color: #f4f1ef;
-        font: bold 65%/1.5 sans-serif;
-        text-align: center;
-        vertical-align: .3em;
-        border-radius: 999px;
-        text-shadow: none;
-        box-shadow: 0 1px #fff
-      }
-
-      pre[data-line] .line-highlight[data-end]:after {
-        content: attr(data-end);
-        top: auto;
-        bottom: .4em
-      }
-
-      html body {
-        font-family: 'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;
-        font-size: 16px;
-        line-height: 1.6;
-        color: #333;
-        background-color: #fff;
-        overflow: initial;
-        box-sizing: border-box;
-        word-wrap: break-word
-      }
-
-      html body>:first-child {
-        margin-top: 0
-      }
-
-      html body h1,
-      html body h2,
-      html body h3,
-      html body h4,
-      html body h5,
-      html body h6 {
-        line-height: 1.2;
-        margin-top: 1em;
-        margin-bottom: 16px;
-        color: #000
-      }
-
-      html body h1 {
-        font-size: 2.25em;
-        font-weight: 300;
-        padding-bottom: .3em
-      }
-
-      html body h2 {
-        font-size: 1.75em;
-        font-weight: 400;
-        padding-bottom: .3em
-      }
-
-      html body h3 {
-        font-size: 1.5em;
-        font-weight: 500
-      }
-
-      html body h4 {
-        font-size: 1.25em;
-        font-weight: 600
-      }
-
-      html body h5 {
-        font-size: 1.1em;
-        font-weight: 600
-      }
-
-      html body h6 {
-        font-size: 1em;
-        font-weight: 600
-      }
-
-      html body h1,
-      html body h2,
-      html body h3,
-      html body h4,
-      html body h5 {
-        font-weight: 600
-      }
-
-      html body h5 {
-        font-size: 1em
-      }
-
-      html body h6 {
-        color: #5c5c5c
-      }
-
-      html body strong {
-        color: #000
-      }
-
-      html body del {
-        color: #5c5c5c
-      }
-
-      html body a:not([href]) {
-        color: inherit;
-        text-decoration: none
-      }
-
-      html body a {
-        color: #08c;
-        text-decoration: none
-      }
-
-      html body a:hover {
-        color: #00a3f5;
-        text-decoration: none
-      }
-
-      html body img {
-        max-width: 100%
-      }
-
-      html body>p {
-        margin-top: 0;
-        margin-bottom: 16px;
-        word-wrap: break-word
-      }
-
-      html body>ol,
-      html body>ul {
-        margin-bottom: 16px
-      }
-
-      html body ol,
-      html body ul {
-        padding-left: 2em
-      }
-
-      html body ol.no-list,
-      html body ul.no-list {
-        padding: 0;
-        list-style-type: none
-      }
-
-      html body ol ol,
-      html body ol ul,
-      html body ul ol,
-      html body ul ul {
-        margin-top: 0;
-        margin-bottom: 0
-      }
-
-      html body li {
-        margin-bottom: 0
-      }
-
-      html body li.task-list-item {
-        list-style: none
-      }
-
-      html body li>p {
-        margin-top: 0;
-        margin-bottom: 0
-      }
-
-      html body .task-list-item-checkbox {
-        margin: 0 .2em .25em -1.8em;
-        vertical-align: middle
-      }
-
-      html body .task-list-item-checkbox:hover {
-        cursor: pointer
-      }
-
-      html body blockquote {
-        margin: 16px 0;
-        font-size: inherit;
-        padding: 0 15px;
-        color: #5c5c5c;
-        background-color: #f0f0f0;
-        border-left: 4px solid #d6d6d6
-      }
-
-      html body blockquote>:first-child {
-        margin-top: 0
-      }
-
-      html body blockquote>:last-child {
-        margin-bottom: 0
-      }
-
-      html body hr {
-        height: 4px;
-        margin: 32px 0;
-        background-color: #d6d6d6;
-        border: 0 none
-      }
-
-      html body table {
-        margin: 10px 0 15px 0;
-        border-collapse: collapse;
-        border-spacing: 0;
-        display: block;
-        width: 100%;
-        overflow: auto;
-        word-break: normal;
-        word-break: keep-all
-      }
-
-      html body table th {
-        font-weight: 700;
-        color: #000
-      }
-
-      html body table td,
-      html body table th {
-        border: 1px solid #d6d6d6;
-        padding: 6px 13px
-      }
-
-      html body dl {
-        padding: 0
-      }
-
-      html body dl dt {
-        padding: 0;
-        margin-top: 16px;
-        font-size: 1em;
-        font-style: italic;
-        font-weight: 700
-      }
-
-      html body dl dd {
-        padding: 0 16px;
-        margin-bottom: 16px
-      }
-
-      html body code {
-        font-family: Menlo,Monaco,Consolas,'Courier New',monospace;
-        font-size: .85em;
-        color: #000;
-        background-color: #f0f0f0;
-        border-radius: 3px;
-        padding: .2em 0
-      }
-
-      html body code::after,
-      html body code::before {
-        letter-spacing: -.2em;
-        content: '\00a0'
-      }
-
-      html body pre>code {
-        padding: 0;
-        margin: 0;
-        word-break: normal;
-        white-space: pre;
-        background: 0 0;
-        border: 0
-      }
-
-      html body .highlight {
-        margin-bottom: 16px
-      }
-
-      html body .highlight pre,
-      html body pre {
-        padding: 1em;
-        overflow: auto;
-        line-height: 1.45;
-        border: #d6d6d6;
-        border-radius: 3px
-      }
-
-      html body .highlight pre {
-        margin-bottom: 0;
-        word-break: normal
-      }
-
-      html body pre code,
-      html body pre tt {
-        display: inline;
-        max-width: initial;
-        padding: 0;
-        margin: 0;
-        overflow: initial;
-        line-height: inherit;
-        word-wrap: normal;
-        background-color: transparent;
-        border: 0
-      }
-
-      html body pre code:after,
-      html body pre code:before,
-      html body pre tt:after,
-      html body pre tt:before {
-        content: normal
-      }
-
-      html body blockquote,
-      html body dl,
-      html body ol,
-      html body p,
-      html body pre,
-      html body ul {
-        margin-top: 0;
-        margin-bottom: 16px
-      }
-
-      html body kbd {
-        color: #000;
-        border: 1px solid #d6d6d6;
-        border-bottom: 2px solid #c7c7c7;
-        padding: 2px 4px;
-        background-color: #f0f0f0;
-        border-radius: 3px
-      }
-
-      @media print {
-        html body {
-          background-color: #fff
-        }
-
-        html body h1,
-        html body h2,
-        html body h3,
-        html body h4,
-        html body h5,
-        html body h6 {
-          color: #000;
-          page-break-after: avoid
-        }
-
-        html body blockquote {
-          color: #5c5c5c
-        }
-
-        html body pre {
-          page-break-inside: avoid
-        }
-
-        html body table {
-          display: table
-        }
-
-        html body img {
-          display: block;
-          max-width: 100%;
-          max-height: 100%
-        }
-
-        html body code,
-        html body pre {
-          word-wrap: break-word;
-          white-space: pre
-        }
-      }
-
-      .markdown-preview {
-        width: 100%;
-        height: 100%;
-        box-sizing: border-box
-      }
-
-      .markdown-preview ul {
-        list-style: disc
-      }
-
-      .markdown-preview ul ul {
-        list-style: circle
-      }
-
-      .markdown-preview ul ul ul {
-        list-style: square
-      }
-
-      .markdown-preview ol {
-        list-style: decimal
-      }
-
-      .markdown-preview ol ol,
-      .markdown-preview ul ol {
-        list-style-type: lower-roman
-      }
-
-      .markdown-preview ol ol ol,
-      .markdown-preview ol ul ol,
-      .markdown-preview ul ol ol,
-      .markdown-preview ul ul ol {
-        list-style-type: lower-alpha
-      }
-
-      .markdown-preview .newpage,
-      .markdown-preview .pagebreak {
-        page-break-before: always
-      }
-
-      .markdown-preview pre.line-numbers {
-        position: relative;
-        padding-left: 3.8em;
-        counter-reset: linenumber
-      }
-
-      .markdown-preview pre.line-numbers>code {
-        position: relative
-      }
-
-      .markdown-preview pre.line-numbers .line-numbers-rows {
-        position: absolute;
-        pointer-events: none;
-        top: 1em;
-        font-size: 100%;
-        left: 0;
-        width: 3em;
-        letter-spacing: -1px;
-        border-right: 1px solid #999;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none
-      }
-
-      .markdown-preview pre.line-numbers .line-numbers-rows>span {
-        pointer-events: none;
-        display: block;
-        counter-increment: linenumber
-      }
-
-      .markdown-preview pre.line-numbers .line-numbers-rows>span:before {
-        content: counter(linenumber);
-        color: #999;
-        display: block;
-        padding-right: .8em;
-        text-align: right
-      }
-
-      .markdown-preview .mathjax-exps .MathJax_Display {
-        text-align: center!important
-      }
-
-      .markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group {
-        display: none
-      }
-
-      .markdown-preview:not([data-for=preview]) .code-chunk .status {
-        display: none
-      }
-
-      .markdown-preview:not([data-for=preview]) .code-chunk .output-div {
-        margin-bottom: 16px
-      }
-
-      .markdown-preview .md-toc {
-        padding: 0
-      }
-
-      .markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link {
-        display: inline;
-        padding: .25rem 0
-      }
-
-      .markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,
-      .markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p {
-        display: inline
-      }
-
-      .markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link {
-        font-weight: 800
-      }
-
-      .scrollbar-style::-webkit-scrollbar {
-        width: 8px
-      }
-
-      .scrollbar-style::-webkit-scrollbar-track {
-        border-radius: 10px;
-        background-color: transparent
-      }
-
-      .scrollbar-style::-webkit-scrollbar-thumb {
-        border-radius: 5px;
-        background-color: rgba(150,150,150,.66);
-        border: 4px solid rgba(150,150,150,.66);
-        background-clip: content-box
-      }
-
-      html body[for=html-export]:not([data-presentation-mode]) {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        margin: 0;
-        padding: 0;
-        overflow: auto
-      }
-
-      html body[for=html-export]:not([data-presentation-mode]) .markdown-preview {
-        position: relative;
-        top: 0;
-        min-height: 100vh
-      }
-
-      @media screen and (min-width:914px) {
-        html body[for=html-export]:not([data-presentation-mode]) .markdown-preview {
-          padding: 2em calc(50% - 457px + 2em)
-        }
-      }
-
-      @media screen and (max-width:914px) {
-        html body[for=html-export]:not([data-presentation-mode]) .markdown-preview {
-          padding: 2em
-        }
-      }
-
-      @media screen and (max-width:450px) {
-        html body[for=html-export]:not([data-presentation-mode]) .markdown-preview {
-          font-size: 14px!important;
-          padding: 1em
-        }
-      }
-
-      @media print {
-        html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn {
-          display: none
-        }
-      }
-
-      html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn {
-        position: fixed;
-        bottom: 8px;
-        left: 8px;
-        font-size: 28px;
-        cursor: pointer;
-        color: inherit;
-        z-index: 99;
-        width: 32px;
-        text-align: center;
-        opacity: .4
-      }
-
-      html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn {
-        opacity: 1
-      }
-
-      html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 300px;
-        height: 100%;
-        padding: 32px 0 48px 0;
-        font-size: 14px;
-        box-shadow: 0 0 4px rgba(150,150,150,.33);
-        box-sizing: border-box;
-        overflow: auto;
-        background-color: inherit
-      }
-
-      html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar {
-        width: 8px
-      }
-
-      html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track {
-        border-radius: 10px;
-        background-color: transparent
-      }
-
-      html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb {
-        border-radius: 5px;
-        background-color: rgba(150,150,150,.66);
-        border: 4px solid rgba(150,150,150,.66);
-        background-clip: content-box
-      }
-
-      html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a {
-        text-decoration: none
-      }
-
-      html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc {
-        padding: 0 16px
-      }
-
-      html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link {
-        display: inline;
-        padding: .25rem 0
-      }
-
-      html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,
-      html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p {
-        display: inline
-      }
-
-      html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link {
-        font-weight: 800
-      }
-
-      html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
-        left: 300px;
-        width: calc(100% - 300px);
-        padding: 2em calc(50% - 457px - 300px / 2);
-        margin: 0;
-        box-sizing: border-box
-      }
-
-      @media screen and (max-width:1274px) {
-        html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
-          padding: 2em
-        }
-      }
-
-      @media screen and (max-width:450px) {
-        html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
-          width: 100%
-        }
-      }
-
-      html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview {
-        left: 50%;
-        transform: translateX(-50%)
-      }
-
-      html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc {
-        display: none
-      }
-    </style>
-
-    <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", function () {
-        // your code here
-      });
-    </script>
-  </head>
-  <body for="html-export">
-    <div class="crossnote markdown-preview  ">
-      <div align="center">
-        <h1 id="fundamentos-de-la-calidad-del-software">Fundamentos de la Calidad del Software </h1>
-        <p><img src="https://i.ibb.co/3TdcjGF/logo-SENA.png" alt="logo-SENA" width="150"></p>
-        <h2 id="equipo-de-trabajo">Equipo de Trabajo </h2>
-        <p>Penélope Noreña Ramos<br>
-        Hernán Darío Pérez Higuita<br>
-        William Pérez Muñoz</p>
-        <h2 id="servicio-nacional-de-aprendizaje---sena">Servicio Nacional de Aprendizaje - SENA </h2>
-        <h3 id="centro-de-gestión-de-mercados-logística-y-tecnologías-de-la-información">Centro de Gestión de Mercados, Logística y Tecnologías de la Información </h3>
-        <h3 id="regional-distrito-capital">Regional Distrito Capital </h3>
-        <h4 id="tecnología-en-análisis-y-desarrollo-de-software">Tecnología en Análisis y Desarrollo de Software </h4>
-        <h4 id="ficha-2758315">Ficha: 2758315 </h4>
-        <h3 id="2024">2024 </h3>
-      </div>
-      <hr>
-      <h1 id="tabla-de-contenido">Tabla de contenido </h1>
-      <ol>
-        <li><a href="#1-introducci%C3%B3n">Introducción</a></li>
-        <li><a href="#2-objetivos">Objetivos</a>
-          <ul>
-            <li><a href="#21-generales">2.1 Generales</a></li>
-            <li><a href="#22-espec%C3%ADficos">2.2 Específicos</a></li>
-          </ul>
-        </li>
-        <li><a href="#3-fases-del-desarrollo-de-software">Fases del Desarrollo de Software</a>
-          <ul>
-            <li><a href="#31-visualizaci%C3%B3n-de-las-fases">3.1 Visualización de las Fases</a></li>
-          </ul>
-        </li>
-        <li><a href="#4-estado-de-requerimientos">Estado de Requerimientos</a>
-          <ul>
-            <li><a href="#41-requerimientos-funcionales-y-no-funcionales">4.1 Requerimientos Funcionales y No Funcionales</a></li>
-          </ul>
-        </li>
-        <li><a href="#5-casos-de-prueba">Casos de Prueba</a>
-          <ul>
-            <li><a href="#51-distribuci%C3%B3n-de-casos-de-prueba-por-funcionalidad">5.1 Distribución de Casos de Prueba por Funcionalidad</a></li>
-            <li><a href="#52-estado-de-ejecuci%C3%B3n-de-casos-de-prueba">5.2 Estado de Ejecución de Casos de Prueba</a></li>
-            <li><a href="#53-ciclos-de-prueba">5.3 Ciclos de Prueba</a></li>
-          </ul>
-        </li>
-        <li><a href="#6-m%C3%A9tricas-y-seguimiento">Métricas y Seguimiento</a>
-          <ul>
-            <li><a href="#61-m%C3%A9tricas-clave">6.1 Métricas Clave</a></li>
-          </ul>
-        </li>
-        <li><a href="#7-documentaci%C3%B3n-de-defectos-y-mejoras---casino-la-fortuna">Documentación de Defectos y Mejoras</a></li>
-        <li><a href="#8-lecciones-aprendidas">Lecciones Aprendidas</a>
-          <ul>
-            <li><a href="#81-gesti%C3%B3n-del-proyecto">8.1 Gestión del Proyecto</a></li>
-            <li><a href="#82-aspectos-t%C3%A9cnicos">8.2 Aspectos Técnicos</a></li>
-            <li><a href="#83-mejores-pr%C3%A1cticas-identificadas">8.3 Mejores Prácticas Identificadas</a></li>
-          </ul>
-        </li>
-        <li><a href="#9-gesti%C3%B3n-de-riesgos">Gestión de Riesgos</a>
-          <ul>
-            <li><a href="#91-riesgos-materializados">9.1 Riesgos Materializados</a></li>
-          </ul>
-        </li>
-        <li><a href="#10-herramientas-utilizadas">Herramientas Utilizadas</a></li>
-        <li><a href="#11-recomendaciones">Recomendaciones</a></li>
-        <li><a href="#12-conclusiones-del-aprendizaje">Conclusiones del Aprendizaje</a></li>
-        <li><a href="#13-glosario-de-t%C3%A9rminos">Glosario de Términos</a></li>
-        <li><a href="#14-referencias">Referencias</a></li>
-        <li><a href="#15-historial-de-cambios">Historial de Cambios</a></li>
-        <li><a href="#16-pr%C3%B3ximos-pasos">Próximos Pasos</a></li>
-        <li><a href="#17-anexos">Anexos</a></li>
-      </ol>
-      <h1 id="1-introducción">1. Introducción </h1>
-      <p>El proyecto <strong>Casino la Fortuna</strong> es una solución de software contable diseñada para establecimientos pequeños y medianos. Este sistema busca optimizar los procesos financieros y administrativos, garantizando una experiencia tecnológica moderna, accesible y confiable.</p>
-      <p>La implementación de prácticas de calidad y la documentación detallada del desarrollo aseguran un producto escalable, funcional y alineado con las necesidades del cliente.</p>
-      <hr>
-      <h1 id="2-objetivos">2. Objetivos </h1>
-      <h2 id="21-generales">2.1 Generales </h2>
-      <ul>
-        <li>Automatizar procesos financieros para mejorar la eficiencia operativa.</li>
-        <li>Desarrollar un sistema integral que cumpla con normativas locales y estándares de calidad.</li>
-        <li>Garantizar la estabilidad y usabilidad mediante pruebas continuas.</li>
-      </ul>
-      <h2 id="22-específicos">2.2 Específicos </h2>
-      <ol>
-        <li>Diseñar una arquitectura modular que permita futuras expansiones.</li>
-        <li>Implementar funcionalidades clave como gestión de clientes, transacciones y reportes.</li>
-        <li>Ejecutar pruebas exhaustivas para detectar y corregir errores.</li>
-        <li>Documentar cada fase del desarrollo para facilitar el mantenimiento.</li>
-      </ol>
-      <hr>
-      <h1 id="3-fases-del-desarrollo-de-software">3. Fases del Desarrollo de Software </h1>
-      <p>El desarrollo del software Casino la Fortuna sigue un enfoque iterativo influenciado por metodologías como RAD (Rapid Application Development), que permite entregar prototipos funcionales tempranos, recibir retroalimentación, y realizar ajustes rápidos. Este proceso se organiza en las siguientes etapas clave:</p>
-      <ol>
-        <li>Análisis de Requisitos: Identificación y priorización de necesidades del cliente.</li>
-        <li>Diseño del Sistema: Creación de prototipos interactivos y definición de la arquitectura del sistema.</li>
-        <li>Desarrollo: Implementación de módulos funcionales, frontend y backend, con operaciones CRUD (Create, Read, Update, Delete) para la gestión eficiente de datos.</li>
-        <li>Pruebas: Identificación y corrección de errores para garantizar estabilidad y calidad.</li>
-        <li>Despliegue: Publicación del sistema en entornos reales y validación final.</li>
-        <li>Mantenimiento: Monitoreo, actualización y mejora continua del software.</li>
-      </ol>
-      <h2 id="31-visualización-de-las-fases">3.1 Visualización de las Fases </h2>
-      <p>Para una mejor comprensión, se presenta una infografía que resume estas etapas:</p>
-      <div>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fundamentos de la Calidad del Software - Casino la Fortuna</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
         <style>
-          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+            body {
+                font-family: 'Poppins', sans-serif;
+            }
+            /* Estilos consistentes para títulos */
+            .section-title {
+                font-size: 1.875rem; /* text-3xl */
+                font-weight: 700; /* font-bold */
+                margin-bottom: 1.5rem; /* mb-6 */
+            }
+            .subsection-title {
+                font-size: 1.5rem; /* text-2xl */
+                font-weight: 700; /* font-bold */
+                margin-bottom: 1rem; /* mb-4 */
+            }
+            .subsection-subtitle {
+                font-size: 1.25rem; /* text-xl */
+                font-weight: 600; /* font-semibold */
+                margin-bottom: 0.75rem; /* mb-3 */
+            }
+            /* Estilos consistentes para secciones */
+            .section-card {
+                background-color: #ffffff; /* bg-white */
+                border-radius: 0.5rem; /* rounded-lg */
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+                padding: 1.5rem; /* p-6 */
+                margin-bottom: 2rem; /* mb-8 */
+            }
+            /* Mantener estilos existentes */
+            .phase-card:hover {
+                transform: translateY(-5px);
+                transition: all 0.3s ease;
+            }
+            .team-section {
+                background: linear-gradient(rgba(0, 123, 255, 0.9), rgba(0, 123, 255, 0.8));
+            }
         </style>
-        <meta charset="UTF-8">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-        <style>
-          .phase-card:hover {
-            transform: translateY(-5px);
-            transition: all 0.3s ease;
-          }
-          .team-section {
-            background: linear-gradient(rgba(0, 123, 255, 0.9), rgba(0, 123, 255, 0.8));
-          }
-          /* supongo que para visualizarlo requiere mas estilos */
-        </style>
-        <!-- Sección de encabezado con información del equipo -->
-        <header class="team-section text-white py-12 px-4">
-          <div class="max-w-5xl mx-auto text-center">
-            <h1 class="text-4xl font-bold mb-4">Fases del Desarrollo de Software</h1>
-          </div>
-        </header>
-        <!-- Introducción -->
-        <div class="bg-white shadow-lg mx-auto max-w-6xl -mt-8 rounded-lg p-8 mb-12">
-          <p class="text-xl text-gray-600 text-center">
-            El desarrollo de software sigue un conjunto de pasos metodológicos que aseguran la creación de soluciones tecnológicas efectivas, escalables y confiables. A continuación, las etapas clave que guían este proceso.
-          </p>
+    </head>
+    <body class="bg-gray-50">
+        <!-- Sección 1: Portada -->
+        <div class="container mx-auto px-4 py-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold mb-6">Fundamentos de la Calidad del Software</h1>
+                <img src="https://i.ibb.co/3TdcjGF/logo-SENA.png" alt="logo-SENA" class="mx-auto w-40 mb-6">
+                <h2 class="text-2xl font-semibold mb-4">Equipo de Trabajo</h2>
+                <p class="mb-6">
+                    Penélope Noreña Ramos<br>
+                    Hernán Darío Pérez Higuita<br>
+                    William Pérez Muñoz
+                </p>
+                <h2 class="text-2xl font-semibold mb-2">Servicio Nacional de Aprendizaje - SENA</h2>
+                <h3 class="text-xl mb-2">Centro de Gestión de Mercados, Logística y Tecnologías de la Información</h3>
+                <h3 class="text-xl mb-2">Regional Distrito Capital</h3>
+                <h4 class="text-lg mb-2">Tecnología en Análisis y Desarrollo de Software</h4>
+                <h4 class="text-lg mb-2">Ficha: 2758315</h4>
+                <h3 class="text-xl">2024</h3>
+            </div>
+            <!-- Sección 2: Introducción -->
+            <section class="section-card">
+                <h1 class="section-title">1. Introducción</h1>
+                <p class="mb-4">
+                    El proyecto <strong>Casino la Fortuna</strong> es una solución de software contable diseñada para establecimientos pequeños y medianos. Este sistema busca optimizar los procesos financieros y administrativos, garantizando una experiencia tecnológica moderna, accesible y confiable.
+                </p>
+                <p class="mb-6">
+                    La implementación de prácticas de calidad y la documentación detallada del desarrollo aseguran un producto escalable, funcional y alineado con las necesidades del cliente.
+                </p>
+                <h2 class="subsection-title">2. Objetivos</h2>
+                <h3 class="subsection-subtitle">2.1 Generales</h3>
+                <ul class="list-disc list-inside mb-4 ml-4">
+                    <li>Automatizar procesos financieros para mejorar la eficiencia operativa.</li>
+                    <li>Desarrollar un sistema integral que cumpla con normativas locales y estándares de calidad.</li>
+                    <li>Garantizar la estabilidad y usabilidad mediante pruebas continuas.</li>
+                </ul>
+                <h3 class="subsection-subtitle">2.2 Específicos</h3>
+                <ol class="list-decimal list-inside mb-6 ml-4">
+                    <li>Diseñar una arquitectura modular que permita futuras expansiones.</li>
+                    <li>Implementar funcionalidades clave como gestión de clientes, transacciones y reportes.</li>
+                    <li>Ejecutar pruebas exhaustivas para detectar y corregir errores.</li>
+                    <li>Documentar cada fase del desarrollo para facilitar el mantenimiento.</li>
+                </ol>
+            </section>
+            <!-- Sección 3: Fases del Desarrollo -->
+            <section class="section-card">
+                <h1 class="section-title">3. Fases del Desarrollo de Software</h1>
+                <p class="mb-4">
+                    El desarrollo del software Casino la Fortuna sigue un enfoque iterativo influenciado por metodologías como RAD (Rapid Application Development), que permite entregar prototipos funcionales tempranos, recibir retroalimentación, y realizar ajustes rápidos. Este proceso se organiza en las siguientes etapas clave:
+                </p>
+                <ol class="list-decimal list-inside mb-6 ml-4">
+                    <li class="mb-2">Análisis de Requisitos: Identificación y priorización de necesidades del cliente.</li>
+                    <li class="mb-2">Diseño del Sistema: Creación de prototipos interactivos y definición de la arquitectura del sistema.</li>
+                    <li class="mb-2">Desarrollo: Implementación de módulos funcionales, frontend y backend, con operaciones CRUD.</li>
+                    <li class="mb-2">Pruebas: Identificación y corrección de errores para garantizar estabilidad y calidad.</li>
+                    <li class="mb-2">Despliegue: Publicación del sistema en entornos reales y validación final.</li>
+                    <li class="mb-2">Mantenimiento: Monitoreo, actualización y mejora continua del software.</li>
+                </ol>
+                <h2 class="subsection-title">3.1 Visualización de las Fases</h2>
+                <p>Para una mejor comprensión, se presenta una infografía que resume estas etapas:</p>
+                <div>
+                    <!-- Sección de encabezado con información del equipo -->
+                    <header class="team-section text-white py-12 px-4">
+                        <div class="max-w-5xl mx-auto text-center">
+                            <h1 class="text-4xl font-bold mb-4">Fases del Desarrollo de Software</h1>
+                        </div>
+                    </header>
+                    <!-- Introducción -->
+                    <div class="bg-white shadow-lg mx-auto max-w-6xl -mt-8 rounded-lg p-8 mb-12">
+                        <p class="text-xl text-gray-600 text-center">
+                            El desarrollo de software sigue un conjunto de pasos metodológicos que aseguran la creación de soluciones tecnológicas efectivas, escalables y confiables. A continuación, las etapas clave que guían este proceso.
+                        </p>
+                    </div>
+                    <!-- Contenido principal -->
+                    <main class="max-w-6xl mx-auto px-4 mb-16">
+                        <!-- Cuadrícula de fases -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <!-- Fase de Análisis -->
+                            <div class="phase-card bg-blue-50 rounded-lg shadow-lg p-6 border-t-4 border-blue-500">
+                                <div class="flex items-center mb-4">
+                                    <span class="text-3xl mr-3">1️⃣</span>
+                                    <h3 class="text-xl font-bold text-gray-800">Análisis de Requisitos</h3>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold text-blue-700">Objetivo</h4>
+                                        <p class="text-gray-600">Entender qué necesita el cliente.</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-blue-700">Actividades</h4>
+                                        <ul class="list-disc list-inside text-gray-600">
+                                            <li>Entrevistas con usuarios clave</li>
+                                            <li>Definición y priorización de requisitos</li>
+                                            <li>Creación de historias de usuario</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-blue-700">Resultado</h4>
+                                        <p class="text-gray-600">Documento detallado de requisitos</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fase de Diseño -->
+                            <div class="phase-card bg-green-50 rounded-lg shadow-lg p-6 border-t-4 border-green-500">
+                                <div class="flex items-center mb-4">
+                                    <span class="text-3xl mr-3">2️⃣</span>
+                                    <h3 class="text-xl font-bold text-gray-800">Diseño del Sistema</h3>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold text-green-700">Objetivo</h4>
+                                        <p class="text-gray-600">Planificar la arquitectura y diseño del software.</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-green-700">Actividades</h4>
+                                        <ul class="list-disc list-inside text-gray-600">
+                                            <li>Diseño de bases de datos</li>
+                                            <li>Creación de prototipos y mockups</li>
+                                            <li>Elaboración de diagramas UML</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-green-700">Resultado</h4>
+                                        <p class="text-gray-600">Prototipos y arquitectura definida</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fase de Desarrollo -->
+                            <div class="phase-card bg-yellow-50 rounded-lg shadow-lg p-6 border-t-4 border-yellow-500">
+                                <div class="flex items-center mb-4">
+                                    <span class="text-3xl mr-3">3️⃣</span>
+                                    <h3 class="text-xl font-bold text-gray-800">Desarrollo</h3>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold text-yellow-700">Objetivo</h4>
+                                        <p class="text-gray-600">Construir el software mediante la programación.</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-yellow-700">Actividades</h4>
+                                        <ul class="list-disc list-inside text-gray-600">
+                                            <li>Implementación de frontend y backend</li>
+                                            <li>Integración de servicios y APIs</li>
+                                            <li>Gestión de control de versiones</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-yellow-700">Resultado</h4>
+                                        <p class="text-gray-600">Código funcional y documentado</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fase de Pruebas -->
+                            <div class="phase-card bg-red-50 rounded-lg shadow-lg p-6 border-t-4 border-red-500">
+                                <div class="flex items-center mb-4">
+                                    <span class="text-3xl mr-3">4️⃣</span>
+                                    <h3 class="text-xl font-bold text-gray-800">Pruebas</h3>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold text-red-700">Objetivo</h4>
+                                        <p class="text-gray-600">Detectar y corregir errores antes del despliegue.</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-red-700">Actividades</h4>
+                                        <ul class="list-disc list-inside text-gray-600">
+                                            <li>Pruebas unitarias y funcionales</li>
+                                            <li>Simulación de casos de uso reales</li>
+                                            <li>Corrección de errores detectados</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-red-700">Resultado</h4>
+                                        <p class="text-gray-600">Software estable y validado</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fase de Despliegue -->
+                            <div class="phase-card bg-purple-50 rounded-lg shadow-lg p-6 border-t-4 border-purple-500">
+                                <div class="flex items-center mb-4">
+                                    <span class="text-3xl mr-3">5️⃣</span>
+                                    <h3 class="text-xl font-bold text-gray-800">Despliegue</h3>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold text-purple-700">Objetivo</h4>
+                                        <p class="text-gray-600">Poner el software en producción.</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-purple-700">Actividades</h4>
+                                        <ul class="list-disc list-inside text-gray-600">
+                                            <li>Configuración del entorno de producción</li>
+                                            <li>Pruebas finales en servidores reales</li>
+                                            <li>Implementación de medidas de seguridad</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-purple-700">Resultado</h4>
+                                        <p class="text-gray-600">Software disponible para el cliente final</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fase de Mantenimiento -->
+                            <div class="phase-card bg-gray-50 rounded-lg shadow-lg p-6 border-t-4 border-gray-500">
+                                <div class="flex items-center mb-4">
+                                    <span class="text-3xl mr-3">6️⃣</span>
+                                    <h3 class="text-xl font-bold text-gray-800">Mantenimiento</h3>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700">Objetivo</h4>
+                                        <p class="text-gray-600">Garantizar la operación continua del software.</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700">Actividades</h4>
+                                        <ul class="list-disc list-inside text-gray-600">
+                                            <li>Resolución de problemas reportados</li>
+                                            <li>Actualizaciones regulares</li>
+                                            <li>Monitoreo del rendimiento</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700">Resultado</h4>
+                                        <p class="text-gray-600">Software estable y actualizado</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pie de página -->
+                        <footer class="text-center py-8 mt-12 text-gray-600 border-t border-gray-200">
+                            <p class="font-bold mb-2">Casino La Fortuna</p>
+                            <p>Fases del Desarrollo de Software</p>
+                        </footer>
+                    </main>
+                </div>
+                <div>
+                    <h1 class="section-title">4. Estado de Requerimientos</h1>
+                    <p>Esta sección detalla el avance en el cumplimiento de los requerimientos funcionales y no funcionales, proporcionando una visión clara del progreso del proyecto.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="font-bold text-blue-800 mb-2">Funcionales:</h3>
+                            <p>Describen las acciones y funcionalidades que el sistema debe cumplir.</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h3 class="font-bold text-green-800 mb-2">No funcionales:</h3>
+                            <p>Abarcan aspectos como rendimiento, seguridad y escalabilidad.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tabla de estado de requerimientos -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title">4.1 Requerimientos Funcionales y No Funcionales</h2>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full mb-6">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estado</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Requerimientos Funcionales</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Requerimientos No Funcionales</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Completado</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">10</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">8</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">En Progreso</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">5</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">3</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Pendiente</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">2</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">4</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-6 py-4 whitespace-nowrap font-bold">Total</td>
+                                    <td class="px-6 py-4 whitespace-nowrap font-bold">17</td>
+                                    <td class="px-6 py-4 whitespace-nowrap font-bold">15</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Visualización gráfica -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h3 class="subsection-subtitle">Gráfico: Estado de Requerimientos</h3>
+                    <p class="text-gray-600 mb-4">
+                        Representación gráfica del estado actual de los requerimientos funcionales y no funcionales.
+                    </p>
+                    <div class="flex justify-center">
+                        <img src="https://i.ibb.co/vcWfcnV/estado-de-requerimientos.png" 
+                             alt="estado-de-requerimientos" 
+                             class="max-w-full h-auto rounded-lg shadow-lg"
+                             style="max-width: 600px;">
+                    </div>
+                </div>
+                <!-- Resumen estadístico -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="subsection-subtitle">Resumen de Avance</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h4 class="font-bold text-blue-600 mb-2">Requerimientos Funcionales</h4>
+                            <p class="text-gray-700">
+                                Progreso: 58.8% completado
+                                <br>
+                                (10 de 17 requerimientos)
+                            </p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h4 class="font-bold text-green-600 mb-2">Requerimientos No Funcionales</h4>
+                            <p class="text-gray-700">
+                                Progreso: 53.3% completado
+                                <br>
+                                (8 de 15 requerimientos)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Sección 5: Casos de Prueba -->
+            <div class="container mx-auto px-4 py-8">
+                <h1 class="section-title">5. Casos de Prueba</h1>
+                <!-- 5.1 Distribución de Casos de Prueba -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title">5.1 Distribución de Casos de Prueba por Funcionalidad</h2>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full mb-6">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Funcionalidad</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Casos de Prueba</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Porcentaje</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">Registro</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">10</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">16.1%</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">Inicio de sesión</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">15</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">24.2%</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">Recuperación de contraseña</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">5</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">8.1%</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">Panel cliente</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">20</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">32.3%</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">Panel operador</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">12</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">19.3%</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-6 py-4 whitespace-nowrap font-bold">Total</td>
+                                    <td class="px-6 py-4 whitespace-nowrap font-bold">62</td>
+                                    <td class="px-6 py-4 whitespace-nowrap font-bold">100%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3 class="subsection-subtitle">Gráfico: Proporción de Casos de Prueba</h3>
+                    <p class="text-gray-600 mb-4">El gráfico muestra cómo se distribuyen los casos de prueba diseñados entre las funcionalidades clave.</p>
+                    <div class="flex justify-center">
+                        <img src="https://i.ibb.co/nbSP9Rq/proporcion-casos-de-prueba.png" 
+                             alt="proporcion-casos-de-prueba" 
+                             class="max-w-full h-auto rounded-lg shadow-lg"
+                             style="max-width: 600px;">
+                    </div>
+                </div>
+                <!-- 5.2 Estado de Ejecución -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title">5.2 Estado de Ejecución de Casos de Prueba</h2>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full mb-6">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Funcionalidad</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Casos Ejecutados</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Casos Pendientes</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">Registro</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">8</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">2</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">10</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">Inicio de sesión</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">12</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">3</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">15</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">Recuperación de contraseña</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">4</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">1</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">5</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">Panel cliente</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">18</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">2</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">20</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">Panel operador</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">10</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">2</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">12</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-6 py-4 whitespace-nowrap font-bold">Total</td>
+                                    <td class="px-6 py-4 whitespace-nowrap font-bold">52</td>
+                                    <td class="px-6 py-4 whitespace-nowrap font-bold">10</td>
+                                    <td class="px-6 py-4 whitespace-nowrap font-bold">62</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3 class="subsection-subtitle">Gráfico: Estado de Casos de Prueba</h3>
+                    <p class="text-gray-600 mb-4">Este gráfico muestra los casos ejecutados y pendientes por funcionalidad, destacando áreas críticas.</p>
+                    <div class="flex justify-center">
+                        <img src="https://i.ibb.co/RyY29p8/estado-casos-de-prueba.png" 
+                             alt="estado-casos-de-prueba" 
+                             class="max-w-full h-auto rounded-lg shadow-lg"
+                             style="max-width: 600px;">
+                    </div>
+                </div>
+                <!-- 5.3 Ciclos de Prueba -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title">5.3 Ciclos de Prueba</h2>
+                    <h3 class="subsection-subtitle">5.3.1 Evolución de los Ciclos de Prueba</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full mb-6">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ciclo</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Casos Ejecutados</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Casos Aprobados</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">Ciclo 1</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">20</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">18</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">Ciclo 2</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">35</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">30</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">Ciclo 3</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">50</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">45</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">Ciclo 4</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">70</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">65</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">Ciclo 5</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">90</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">85</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3 class="subsection-subtitle">5.3.2 Gráficos de Seguimiento</h3>
+                    <ul class="list-disc list-inside mb-4 ml-4">
+                        <li>Gráfico: Proporción de Casos de Prueba</li>
+                        <li>Gráfico: Estado de Casos de Prueba</li>
+                        <li>Gráfico: Evolución de Ciclos de Prueba</li>
+                    </ul>
+                    <div class="flex justify-center">
+                        <img src="https://i.ibb.co/rHj88CB/evolucion-ciclos-prueba.png" 
+                             alt="evolucion-ciclos-prueba" 
+                             class="max-w-full h-auto rounded-lg shadow-lg"
+                             style="max-width: 600px;">
+                    </div>
+                </div>
+            </div>
+            <!-- Sección 6: Métricas y Seguimiento -->
+            <div class="container mx-auto px-4 py-8">
+                <h1 class="section-title">6. Métricas y Seguimiento</h1>
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title">6.1 Métricas Clave</h2>
+                    <!-- Métricas principales -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <!-- Cobertura de Pruebas -->
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h3 class="font-bold text-blue-800 mb-3">Cobertura de Pruebas</h3>
+                            <div class="text-4xl font-bold text-blue-600 mb-2">83.9%</div>
+                            <p class="text-gray-700">
+                                Se ha logrado ejecutar el 83.9% de los casos planificados, lo que indica un progreso significativo en la validación de funcionalidades.
+                            </p>
+                        </div>
+                        <!-- Tasa de Aprobación -->
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <h3 class="font-bold text-green-800 mb-3">Tasa de Aprobación</h3>
+                            <div class="text-4xl font-bold text-green-600 mb-2">94.4%</div>
+                            <p class="text-gray-700">
+                                Una alta tasa del 94.4% refleja la calidad y estabilidad del sistema en desarrollo.
+                            </p>
+                        </div>
+                        <!-- Evolución Positiva -->
+                        <div class="bg-purple-50 p-6 rounded-lg">
+                            <h3 class="font-bold text-purple-800 mb-3">Evolución Positiva</h3>
+                            <p class="text-gray-700">
+                                El incremento constante en los casos aprobados por ciclo sugiere una mejora continua en la calidad del software.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Análisis Detallado -->
+                    <div class="bg-gray-50 p-6 rounded-lg mb-8">
+                        <h3 class="subsection-subtitle">Análisis de Tendencias</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Progreso por Ciclo -->
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Progreso por Ciclo de Pruebas</h4>
+                                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                    <li>Ciclo 1: 90% de efectividad (18/20)</li>
+                                    <li>Ciclo 2: 85.7% de efectividad (30/35)</li>
+                                    <li>Ciclo 3: 90% de efectividad (45/50)</li>
+                                    <li>Ciclo 4: 92.9% de efectividad (65/70)</li>
+                                    <li>Ciclo 5: 94.4% de efectividad (85/90)</li>
+                                </ul>
+                            </div>
+                            <!-- Áreas de Mejora -->
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Áreas de Mejora Identificadas</h4>
+                                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                    <li>Optimización de tiempos de respuesta</li>
+                                    <li>Validación de entrada de datos</li>
+                                    <li>Gestión de sesiones concurrentes</li>
+                                    <li>Manejo de casos de error</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Indicadores de Rendimiento -->
+                    <div class="bg-white border border-gray-200 rounded-lg p-6">
+                        <h3 class="subsection-subtitle">Indicadores de Rendimiento</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <!-- Tiempo de Respuesta -->
+                            <div class="p-4 border rounded-lg">
+                                <h4 class="font-semibold text-gray-800 mb-2">Tiempo de Respuesta</h4>
+                                <p class="text-gray-700">Promedio: <span class="font-bold">1.2s</span></p>
+                                <p class="text-sm text-gray-600">Objetivo: < 2s</p>
+                            </div>
+                            <!-- Estabilidad -->
+                            <div class="p-4 border rounded-lg">
+                                <h4 class="font-semibold text-gray-800 mb-2">Estabilidad</h4>
+                                <p class="text-gray-700">Uptime: <span class="font-bold">99.5%</span></p>
+                                <p class="text-sm text-gray-600">Objetivo: > 99%</p>
+                            </div>
+                            <!-- Satisfacción de Usuario -->
+                            <div class="p-4 border rounded-lg">
+                                <h4 class="font-semibold text-gray-800 mb-2">Satisfacción</h4>
+                                <p class="text-gray-700">Rating: <span class="font-bold">4.5/5</span></p>
+                                <p class="text-sm text-gray-600">Basado en feedback de pruebas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Conclusiones y Recomendaciones -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="subsection-subtitle">Conclusiones y Recomendaciones</h3>
+                    <div class="space-y-4">
+                        <p class="text-gray-700">
+                            Las métricas muestran un progreso consistente en la calidad del software, con una tendencia positiva en la tasa de aprobación de pruebas y la estabilidad del sistema.
+                        </p>
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-yellow-800 mb-2">Recomendaciones para el Siguiente Ciclo</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li>Aumentar la cobertura de pruebas automatizadas</li>
+                                <li>Implementar monitoreo en tiempo real</li>
+                                <li>Reforzar pruebas de carga y estrés</li>
+                                <li>Documentar casos de prueba exitosos como referencia</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sección 7: Documentación de Defectos y Mejoras -->
+            <div class="container mx-auto px-4 py-8">
+                <h1 class="section-title">7. Documentación de Defectos y Mejoras - Casino la Fortuna</h1>
+                <!-- 7.1 Análisis de Defectos y Mejoras -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title">7.1 Análisis de Defectos y Mejoras</h2>
+                    <!-- 7.1.1 Defectos Reportados -->
+                    <div class="mb-8">
+                        <h3 class="subsection-subtitle">7.1.1 Defectos Reportados</h3>
+                        <p class="text-gray-700 mb-4">
+                            Los defectos reportados durante el proceso de pruebas se han clasificado según su severidad, priorizando aquellos que impactan más en la funcionalidad del sistema.
+                        </p>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full mb-6">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Severidad</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cantidad</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descripción</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-red-600 font-medium">Crítico</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">2</td>
+                                        <td class="px-6 py-4">Impacto severo en funcionalidad core</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-green-600">2 Resueltos</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-orange-600 font-medium">Mayor</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">8</td>
+                                        <td class="px-6 py-4">Afecta significativamente la operación</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">6 Resueltos, 2 En Progreso</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-yellow-600 font-medium">Menor</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">15</td>
+                                        <td class="px-6 py-4">Impacto limitado en funcionalidad</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">10 Resueltos, 5 En Progreso</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-blue-600 font-medium">Trivial</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">5</td>
+                                        <td class="px-6 py-4">Problemas cosméticos o mejoras sugeridas</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">3 Resueltos, 2 Pendientes</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="px-6 py-4 whitespace-nowrap font-bold">Total</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-bold">30</td>
+                                        <td class="px-6 py-4"></td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-bold">21 Resueltos (70%)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-3">Distribución de Defectos por Severidad</h4>
+                        <p class="text-gray-700 mb-4">
+                            Este gráfico ilustra la proporción de defectos según su severidad, destacando el enfoque del equipo en resolver defectos críticos y mayores.
+                        </p>
+                        <div class="flex justify-center mb-8">
+                            <img src="https://i.ibb.co/LnLjL9H/defectos-por-severidad.png" 
+                                 alt="defectos-por-severidad" 
+                                 class="max-w-full h-auto rounded-lg shadow-lg"
+                                 style="max-width: 600px;">
+                        </div>
+                    </div>
+                    <!-- 7.1.2 Oportunidades de Mejora -->
+                    <div class="mb-8">
+                        <h3 class="subsection-subtitle">7.1.2 Oportunidades de Mejora Identificadas</h3>
+                        <p class="text-gray-700 mb-4">
+                            Se han identificado 45 oportunidades de mejora distribuidas en las siguientes categorías:
+                        </p>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full mb-6">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Categoría</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cantidad</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descripción</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Prioridad</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-medium">Rendimiento</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">12</td>
+                                        <td class="px-6 py-4">Optimización de tiempos de respuesta y recursos</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-red-600">Alta</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-medium">Usabilidad</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">8</td>
+                                        <td class="px-6 py-4">Mejoras en la experiencia de usuario</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-yellow-600">Media</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-medium">Seguridad</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">6</td>
+                                        <td class="px-6 py-4">Fortalecimiento de controles y validaciones</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-red-600">Alta</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-medium">Funcionalidad</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">15</td>
+                                        <td class="px-6 py-4">Expansión y refinamiento de características</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-yellow-600">Media</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-medium">Documentación</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">4</td>
+                                        <td class="px-6 py-4">Mejoras en guías y documentación técnica</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-blue-600">Baja</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="px-6 py-4 whitespace-nowrap font-bold">Total</td>
+                                        <td class="px-6 py-4 whitespace-nowrap font-bold">45</td>
+                                        <td class="px-6 py-4"></td>
+                                        <td class="px-6 py-4"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-3">Distribución de Oportunidades de Mejora</h4>
+                        <p class="text-gray-700 mb-4">
+                            El gráfico muestra las áreas prioritarias para la mejora continua, enfocándose en rendimiento y funcionalidad.
+                        </p>
+                        <div class="flex justify-center mb-8">
+                            <img src="https://i.ibb.co/XFLmyCr/oportunidades-mejora.png" 
+                                 alt="oportunidades-mejora" 
+                                 class="max-w-full h-auto rounded-lg shadow-lg"
+                                 style="max-width: 600px;">
+                        </div>
+                    </div>
+                    <!-- 7.1.3 Análisis de Tendencias -->
+                    <div class="mb-8">
+                        <h3 class="subsection-subtitle">7.1.3 Análisis de Tendencias</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Tasa de Resolución -->
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-lg mb-3">Tasa de Resolución de Defectos:</h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li>70% de defectos resueltos (21 de 30)</li>
+                                    <li>100% de defectos críticos resueltos</li>
+                                    <li>75% de defectos mayores resueltos</li>
+                                    <li>67% de defectos menores resueltos</li>
+                                    <li>60% de defectos triviales resueltos</li>
+                                </ul>
+                            </div>
+                            <!-- Distribución de Esfuerzo -->
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-lg mb-3">Distribución de Esfuerzo:</h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li><strong>40%</strong> en corrección de defectos</li>
+                                    <li><strong>35%</strong> en implementación de mejoras</li>
+                                    <li><strong>25%</strong> en prevención y documentación</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 7.1.4 Recomendaciones Prioritarias -->
+                    <div class="bg-white p-6 rounded-lg border border-gray-200">
+                        <h3 class="subsection-subtitle">7.1.4 Recomendaciones Prioritarias</h3>
+                        <div class="space-y-6">
+                            <!-- Corto Plazo -->
+                            <div>
+                                <h4 class="font-bold text-blue-600 mb-2">Corto Plazo:</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Resolver los 2 defectos mayores pendientes, identificados como críticos en el gráfico "Defectos por Severidad".</li>
+                                    <li>Implementar mejoras de rendimiento críticas.</li>
+                                </ul>
+                            </div>
+                            <!-- Mediano Plazo -->
+                            <div>
+                                <h4 class="font-bold text-green-600 mb-2">Mediano Plazo:</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Abordar defectos menores pendientes.</li>
+                                    <li>Fortalecer pruebas automatizadas.</li>
+                                </ul>
+                            </div>
+                            <!-- Largo Plazo -->
+                            <div>
+                                <h4 class="font-bold text-purple-600 mb-2">Largo Plazo:</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Desarrollar un plan de mejora continua.</li>
+                                    <li>Establecer métricas de calidad preventivas.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sección 8: Lecciones Aprendidas -->
+            <div class="container mx-auto px-4 py-8">
+                <h1 class="section-title">8. Lecciones Aprendidas</h1>
+
+                <!-- 8.1 Gestión del Proyecto -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title">8.1 Gestión del Proyecto</h2>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full mb-6">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Área</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Lección Aprendida</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Impacto</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones de Mejora</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Planificación</td>
+                                    <td class="px-6 py-4">La estimación inicial no incluyó tiempo para pruebas</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-red-600">Alto</td>
+                                    <td class="px-6 py-4">Incluir actividades de testing en el cronograma</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Comunicación</td>
+                                    <td class="px-6 py-4">Las reuniones frecuentes mejoraron la organización</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-green-600">Positivo</td>
+                                    <td class="px-6 py-4">Mantener la práctica en futuros proyectos</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Desarrollo</td>
+                                    <td class="px-6 py-4">Pruebas tempranas detectaron errores críticos</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-green-600">Positivo</td>
+                                    <td class="px-6 py-4">Implementar testing desde el inicio</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Documentación</td>
+                                    <td class="px-6 py-4">La falta de estándares iniciales generó confusión</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-yellow-600">Medio</td>
+                                    <td class="px-6 py-4">Crear plantillas básicas desde el inicio</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 8.2 Aspectos Técnicos -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title">8.2 Aspectos Técnicos</h2>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full mb-6">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aspecto</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aprendizaje</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Recomendación</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Modularidad</td>
+                                    <td class="px-6 py-4">Diseñar módulos pequeños facilitó la implementación</td>
+                                    <td class="px-6 py-4">Seguir el enfoque modular</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Base de Datos</td>
+                                    <td class="px-6 py-4">Consultas mal optimizadas afectaron el rendimiento</td>
+                                    <td class="px-6 py-4">Revisar y optimizar consultas</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Seguridad</td>
+                                    <td class="px-6 py-4">Validaciones básicas evitaron accesos no deseados</td>
+                                    <td class="px-6 py-4">Integrar pruebas de seguridad</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Interfaz</td>
+                                    <td class="px-6 py-4">Diseños simples ayudaron a usuarios finales</td>
+                                    <td class="px-6 py-4">Priorizar usabilidad</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 8.3 Mejores Prácticas Identificadas -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="subsection-title">8.3 Mejores Prácticas Identificadas</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Desarrollo -->
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h3 class="font-bold text-blue-800 mb-3">Desarrollo</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li>Dividir tareas grandes en entregas pequeñas</li>
+                                <li>Usar un control de versiones como Git para rastrear cambios</li>
+                                <li>Mantener el código organizado y documentado</li>
+                            </ul>
+                        </div>
+
+                        <!-- Testing -->
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <h3 class="font-bold text-green-800 mb-3">Testing</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li>Realizar pruebas manuales iniciales en módulos clave</li>
+                                <li>Validar cada funcionalidad antes de avanzar al siguiente módulo</li>
+                                <li>Documentar los resultados de las pruebas</li>
+                            </ul>
+                        </div>
+
+                        <!-- Gestión -->
+                        <div class="bg-purple-50 p-6 rounded-lg">
+                            <h3 class="font-bold text-purple-800 mb-3">Gestión</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li>Documentar decisiones importantes</li>
+                                <li>Asignar tareas claras a cada miembro del equipo</li>
+                                <li>Mantener una comunicación constante</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sección 9: Gestión de Riesgos -->
+            <div class="container mx-auto px-4 py-8">
+                <h1 class="section-title">9. Gestión de Riesgos</h1>
+
+                <!-- 9.1 Riesgos Materializados -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title">9.1 Riesgos Materializados</h2>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full mb-6">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Riesgo</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Impacto</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Plan de Contingencia Activado</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Resultado</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Retraso en tareas</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-yellow-600">Medio</td>
+                                    <td class="px-6 py-4">Dividir tareas complejas en subtareas</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-green-600">Mitigado</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Errores en validaciones</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-red-600">Alto</td>
+                                    <td class="px-6 py-4">Revisar requerimientos y validar diseño</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-green-600">Resuelto</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Problemas de integración</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-red-600">Alto</td>
+                                    <td class="px-6 py-4">Uso de documentación y pruebas adicionales</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-yellow-600">En Progreso</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Análisis de Impacto -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                        <!-- Análisis de Impacto por Área -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="font-bold text-lg mb-4">Análisis de Impacto por Área</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-medium">Desarrollo:</span>
+                                    <span class="text-yellow-600">Impacto Medio</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="font-medium">Testing:</span>
+                                    <span class="text-red-600">Impacto Alto</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="font-medium">Infraestructura:</span>
+                                    <span class="text-green-600">Impacto Bajo</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Efectividad de Mitigación -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="font-bold text-lg mb-4">Efectividad de Mitigación</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-medium">Riesgos Resueltos:</span>
+                                    <span class="text-green-600">67%</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="font-medium">En Progreso:</span>
+                                    <span class="text-yellow-600">33%</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="font-medium">Tiempo Promedio de Resolución:</span>
+                                    <span>5 días</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estrategias de Prevención -->
+                    <div class="mt-8">
+                        <h3 class="font-bold text-lg mb-4">Estrategias de Prevención Implementadas</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Prevención -->
+                            <div class="bg-blue-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-blue-800 mb-3">Prevención</h4>
+                                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                    <li>Revisiones de código periódicas</li>
+                                    <li>Pruebas automatizadas</li>
+                                    <li>Monitoreo continuo</li>
+                                </ul>
+                            </div>
+
+                            <!-- Mitigación -->
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-green-800 mb-3">Mitigación</h4>
+                                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                    <li>Planes de contingencia</li>
+                                    <li>Respaldos regulares</li>
+                                    <li>Documentación actualizada</li>
+                                </ul>
+                            </div>
+
+                            <!-- Seguimiento -->
+                            <div class="bg-purple-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-purple-800 mb-3">Seguimiento</h4>
+                                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                    <li>Reuniones semanales</li>
+                                    <li>Reportes de estado</li>
+                                    <li>Métricas de seguimiento</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recomendaciones Futuras -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="font-bold text-lg mb-4">Recomendaciones para Futuros Proyectos</h3>
+                    <div class="space-y-4">
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-yellow-800 mb-2">Identificación Temprana</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li>Implementar revisiones de riesgo semanales</li>
+                                <li>Mantener un registro actualizado de riesgos potenciales</li>
+                                <li>Establecer métricas de alerta temprana</li>
+                            </ul>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-2">Mejora Continua</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li>Documentar lecciones aprendidas de cada incidente</li>
+                                <li>Actualizar planes de contingencia regularmente</li>
+                                <li>Capacitar al equipo en gestión de riesgos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sección 10: Herramientas Utilizadas -->
+            <div class="container mx-auto px-4 py-8">
+                <h1 class="section-title">10. Herramientas Utilizadas</h1>
+
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <p class="text-gray-700 mb-6">
+                        El desarrollo del proyecto se apoyó en herramientas que facilitaron el diseño, implementación y pruebas. Las herramientas principales incluyen:
+                    </p>
+
+                    <!-- 10.1 Desarrollo y Control de Versiones -->
+                    <div class="mb-8">
+                        <h2 class="subsection-title">10.1 Desarrollo y Control de Versiones</h2>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full mb-6">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Categoría</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Herramienta</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Uso</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-medium">IDE</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Visual Studio Code</td>
+                                        <td class="px-6 py-4">Desarrollo del frontend y backend</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-medium">Control de Versiones</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Git</td>
+                                        <td class="px-6 py-4">Rastreo de cambios en el código</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-medium">Repositorio</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">GitHub</td>
+                                        <td class="px-6 py-4">Alojamiento del proyecto</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 10.2 Testing y Calidad -->
+                    <div class="mb-8">
+                        <h2 class="subsection-title">10.2 Testing y Calidad</h2>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full mb-6">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Categoría</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Herramienta</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Uso</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-medium">Testing Manual</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Navegadores</td>
+                                        <td class="px-6 py-4">Validación de interfaces</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-medium">Documentación</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Google Docs</td>
+                                        <td class="px-6 py-4">Registro de pruebas</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 10.3 Gestión y Documentación -->
+                    <div class="mb-8">
+                        <h2 class="subsection-title">10.3 Gestión y Documentación</h2>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full mb-6">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Categoría</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Herramienta</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Uso</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-medium">Gestión de Tareas</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Trello</td>
+                                        <td class="px-6 py-4">Seguimiento de actividades</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-medium">Comunicación</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">WhatsApp</td>
+                                        <td class="px-6 py-4">Coordinación rápida entre el equipo</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 10.4 Métricas de Uso de Herramientas -->
+                    <div>
+                        <h2 class="subsection-title">10.4 Métricas de Uso de Herramientas</h2>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Herramienta</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Usuarios Activos</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Frecuencia de Uso</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Satisfacción</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-medium">VS Code</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">3</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Diaria</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">90%</                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-medium">GitHub</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">3</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Semanal</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">85%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap font-medium">Trello</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">3</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Semanal</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">80%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sección 11: Recomendaciones -->
+            <div class="container mx-auto px-4 py-8">
+                <h1 class="section-title">11. Recomendaciones</h1>
+
+                <!-- Corto Plazo -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title text-blue-600 mb-4">Corto Plazo</h2>
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <ul class="list-disc list-inside space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Mejorar la planificación inicial para incluir pruebas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Revisar los módulos de seguridad y realizar ajustes básicos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Establecer estándares de documentación básicos</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mediano Plazo -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title text-green-600 mb-4">Mediano Plazo</h2>
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <ul class="list-disc list-inside space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Implementar una plantilla estándar para la documentación</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Automatizar tareas repetitivas donde sea posible</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Mejorar las prácticas de control de versiones</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Largo Plazo -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title text-purple-600 mb-4">Largo Plazo</h2>
+                    <div class="bg-purple-50 p-6 rounded-lg">
+                        <ul class="list-disc list-inside space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Aprender a usar herramientas más avanzadas como Jenkins para CI/CD</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Explorar herramientas de monitoreo y métricas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Implementar prácticas de desarrollo más avanzadas</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Matriz de Priorización -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="subsection-title">Matriz de Priorización de Recomendaciones</h2>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Recomendación</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Impacto</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Esfuerzo</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Prioridad</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <!-- Corto Plazo -->
+                                <tr>
+                                    <td class="px-6 py-4">Mejorar planificación inicial</td>
+                                    <td class="px-6 py-4 text-green-600">Alto</td>
+                                    <td class="px-6 py-4 text-green-600">Bajo</td>
+                                    <td class="px-6 py-4 font-bold text-red-600">Alta</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">Revisar módulos de seguridad</td>
+                                    <td class="px-6 py-4 text-green-600">Alto</td>
+                                    <td class="px-6 py-4 text-yellow-600">Medio</td>
+                                    <td class="px-6 py-4 font-bold text-red-600">Alta</td>
+                                </tr>
+                                <!-- Mediano Plazo -->
+                                <tr>
+                                    <td class="px-6 py-4">Implementar plantillas estándar</td>
+                                    <td class="px-6 py-4 text-yellow-600">Medio</td>
+                                    <td class="px-6 py-4 text-green-600">Bajo</td>
+                                    <td class="px-6 py-4 font-bold text-yellow-600">Media</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">Automatizar tareas</td>
+                                    <td class="px-6 py-4 text-green-600">Alto</td>
+                                    <td class="px-6 py-4 text-red-600">Alto</td>
+                                    <td class="px-6 py-4 font-bold text-yellow-600">Media</td>
+                                </tr>
+                                <!-- Largo Plazo -->
+                                <tr>
+                                    <td class="px-6 py-4">Implementar CI/CD</td>
+                                    <td class="px-6 py-4 text-green-600">Alto</td>
+                                    <td class="px-6 py-4 text-red-600">Alto</td>
+                                    <td class="px-6 py-4 font-bold text-blue-600">Baja</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Sección 12: Conclusiones del Aprendizaje -->
+            <div class="container mx-auto px-4 py-8">
+                <h1 class="section-title">12. Conclusiones del Aprendizaje</h1>
+
+                <!-- Logros Principales -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title text-green-600 mb-4">1. Logros Principales</h2>
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <ul class="list-disc list-inside space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Implementación exitosa de un sistema modular</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Desarrollo de habilidades en control de versiones</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Mejora en la organización y documentación</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Detalles de Logros -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                        <div class="p-4 border rounded-lg bg-gray-50">
+                            <h4 class="font-semibold text-gray-800 mb-2">Sistema Modular</h4>
+                            <p class="text-sm text-gray-600">
+                                La arquitectura modular permitió un desarrollo más ordenado y mantenible.
+                            </p>
+                        </div>
+                        <div class="p-4 border rounded-lg bg-gray-50">
+                            <h4 class="font-semibold text-gray-800 mb-2">Control de Versiones</h4>
+                            <p class="text-sm text-gray-600">
+                                Mejor manejo de cambios y colaboración en equipo.
+                            </p>
+                        </div>
+                        <div class="p-4 border rounded-lg bg-gray-50">
+                            <h4 class="font-semibold text-gray-800 mb-2">Documentación</h4>
+                            <p class="text-sm text-gray-600">
+                                Mayor claridad y accesibilidad en la información del proyecto.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Áreas de Mejora -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title text-blue-600 mb-4">2. Áreas de Mejora</h2>
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <ul class="list-disc list-inside space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Profundizar en prácticas de testing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Mejorar la estimación de tiempos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Fortalecer conocimientos en seguridad</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Plan de Acción -->
+                    <div class="mt-4 p-4 border rounded-lg bg-yellow-50">
+                        <h4 class="font-semibold text-yellow-800 mb-2">Plan de Acción para Mejoras</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-medium mb-2">Corto Plazo</h5>
+                                <ul class="list-disc list-inside text-sm text-gray-700">
+                                    <li>Implementar pruebas unitarias</li>
+                                    <li>Revisar metodología de estimación</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-medium mb-2">Largo Plazo</h5>
+                                <ul class="list-disc list-inside text-sm text-gray-700">
+                                    <li>Capacitación en seguridad</li>
+                                    <li>Certificaciones técnicas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Próximos Pasos en el Aprendizaje -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title text-purple-600 mb-4">3. Próximos Pasos en el Aprendizaje</h2>
+                    <div class="bg-purple-50 p-6 rounded-lg">
+                        <ul class="list-disc list-inside space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Explorar frameworks de testing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Estudiar metodologías ágiles</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Practicar desarrollo basado en pruebas</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Ruta de Aprendizaje -->
+                    <div class="mt-6">
+                        <h3 class="font-bold text-lg mb-4">Ruta de Aprendizaje Propuesta</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-gray-50 rounded-lg">
+                                <h4 class="font-semibold text-gray-800 mb-2">Fase 1: Fundamentos</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-600">
+                                    <li>Conceptos básicos de testing</li>
+                                    <li>Principios de metodologías ágiles</li>
+                                    <li>Buenas prácticas de desarrollo</li>
+                                </ul>
+                            </div>
+                            <div class="p-4 bg-gray-50 rounded-lg">
+                                <h4 class="font-semibold text-gray-800 mb-2">Fase 2: Especialización</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-600">
+                                    <li>Testing avanzado</li>
+                                    <li>Seguridad en aplicaciones</li>
+                                    <li>Optimización de rendimiento</li>
+                                </ul>
+                            </div>
+                            <div class="p-4 bg-gray-50 rounded-lg">
+                                <h4 class="font-semibold text-gray-800 mb-2">Fase 3: Maestría</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-600">
+                                    <li>Arquitectura de software</li>
+                                    <li>Patrones de diseño avanzados</li>
+                                    <li>Liderazgo técnico</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conclusiones Finales -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="font-bold text-lg mb-4">Conclusiones Finales</h3>
+                    <div class="prose max-w-none text-gray-700">
+                        <p class="mb-4">
+                            El proyecto ha sido una valiosa oportunidad de aprendizaje que ha permitido al equipo desarrollar tanto habilidades técnicas como blandas. Los desafíos encontrados han servido como catalizadores para el crecimiento profesional y han ayudado a identificar áreas clave de mejora.
+                        </p>
+                        <p>
+                            El camino por delante está claro, con objetivos de aprendizaje bien definidos y un plan estructurado para alcanzarlos. La experiencia adquirida servirá como base sólida para futuros proyectos y desarrollo profesional continuo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Sección 13: Glosario de Términos -->
+            <div class="container mx-auto px-4 py-8">
+                <h1 class="section-title">13. Glosario de Términos</h1>
+
+                <!-- Términos de Desarrollo -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title">Términos de Desarrollo</h2>
+
+                    <div class="space-y-6">
+                        <!-- RAD -->
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-blue-800 mb-2">RAD (Rapid Application Development)</h3>
+                            <p class="text-gray-700">
+                                Metodología de desarrollo ágil que enfatiza el desarrollo rápido y la entrega iterativa de prototipos funcionales. 
+                                Permite obtener retroalimentación temprana del cliente y realizar ajustes continuos durante el proceso de desarrollo.
+                            </p>
+                        </div>
+
+                        <!-- CRUD -->
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-green-800 mb-2">CRUD (Create, Read, Update, Delete)</h3>
+                            <p class="text-gray-700 mb-3">
+                                Operaciones básicas de persistencia de datos que debe realizar un sistema de información:
+                            </p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li>Create: Crear o añadir nuevos registros</li>
+                                <li>Read: Leer o recuperar datos existentes</li>
+                                <li>Update: Actualizar o modificar registros</li>
+                                <li>Delete: Eliminar o borrar datos</li>
+                            </ul>
+                        </div>
+
+                        <!-- Frontend -->
+                        <div class="bg-purple-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-purple-800 mb-2">Frontend</h3>
+                            <p class="text-gray-700">
+                                Parte de la aplicación con la que interactúa directamente el usuario. Incluye la interfaz gráfica, 
+                                formularios y todos los elementos visuales de la aplicación.
+                            </p>
+                        </div>
+
+                        <!-- Backend -->
+                        <div class="bg-indigo-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-indigo-800 mb-2">Backend</h3>
+                            <p class="text-gray-700">
+                                Parte del sistema que procesa la lógica de negocio y gestiona los datos. Opera en el servidor y maneja 
+                                las solicitudes del frontend, procesando y almacenando información en la base de datos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Términos de Calidad y Testing -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title">Términos de Calidad y Testing</h2>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Defecto Crítico -->
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-red-800 mb-2">Defecto crítico</h3>
+                            <p class="text-gray-700">
+                                Error que impide completamente la operación del sistema, causando fallos que hacen imposible el uso 
+                                de funcionalidades core del software.
+                            </p>
+                        </div>
+
+                        <!-- Defecto Mayor -->
+                        <div class="bg-orange-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-orange-800 mb-2">Defecto mayor</h3>
+                            <p class="text-gray-700">
+                                Error que afecta significativamente la funcionalidad pero permite operación limitada del sistema. 
+                                Impacta severamente la experiencia del usuario pero no detiene completamente la operación.
+                            </p>
+                        </div>
+
+                        <!-- Defecto Menor -->
+                        <div class="bg-yellow-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-yellow-800 mb-2">Defecto menor</h3>
+                            <p class="text-gray-700">
+                                Error que no impide la operación principal del sistema. Puede causar inconvenientes menores 
+                                pero no afecta las funcionalidades principales.
+                            </p>
+                        </div>
+
+                        <!-- Defecto Trivial -->
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-green-800 mb-2">Defecto trivial</h3>
+                            <p class="text-gray-700">
+                                Problema cosmético o de baja prioridad que no afecta la funcionalidad. Generalmente relacionado 
+                                con la interfaz de usuario o elementos no críticos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Términos Específicos del Proyecto -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title">Términos Específicos del Proyecto</h2>
+
+                    <div class="space-y-6">
+                        <!-- Panel cliente -->
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-blue-800 mb-2">Panel cliente</h3>
+                            <p class="text-gray-700">
+                                Interfaz específica para usuarios finales del Casino la Fortuna, diseñada para facilitar las 
+                                operaciones cotidianas de los clientes del establecimiento.
+                            </p>
+                        </div>
+
+                        <!-- Panel operador -->
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-green-800 mb-2">Panel operador</h3>
+                            <p class="text-gray-700">
+                                Interfaz administrativa para gestión del sistema, que permite el control y supervisión de todas 
+                                las operaciones realizadas en la plataforma.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Herramientas -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="subsection-title">Herramientas</h2>
+
+                    <div class="space-y-6">
+                        <!-- Git -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Git</h3>
+                            <p class="text-gray-700">
+                                Sistema de control de versiones distribuido que permite el seguimiento de cambios en el código 
+                                fuente durante el desarrollo de software.
+                            </p>
+                        </div>
+
+                        <!-- Visual Studio Code -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Visual Studio Code</h3>
+                            <p class="text-gray-700">
+                                IDE (Entorno de Desarrollo Integrado) utilizado para el desarrollo del frontend y backend del proyecto.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sección 14: Referencias -->
+            <div class="container mx-auto px-4 py-8">
+                <h1 class="section-title">14. Referencias</h1>
+
+                <!-- Lista de Referencias -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <ol class="list-decimal list-inside space-y-4 text-gray-700">
+                        <li class="p-2 hover:bg-gray-50">
+                            <span class="font-medium">Documentación técnica inicial del proyecto</span>
+                            <div class="ml-6 mt-2 text-sm text-gray-600">
+                                Base de referencia para el desarrollo y la implementación.
+                            </div>
+                        </li>
+                        <li class="p-2 hover:bg-gray-50">
+                            <span class="font-medium">Normativas contables aplicables</span>
+                            <div class="ml-6 mt-2 text-sm text-gray-600">
+                                Marco regulatorio y estándares contables relevantes.
+                            </div>
+                        </li>
+                        <li class="p-2 hover:bg-gray-50">
+                            <span class="font-medium">Estándares de calidad ISO/IEC 25010</span>
+                            <div class="ml-6 mt-2 text-sm text-gray-600">
+                                Guías para la evaluación de calidad del software.
+                            </div>
+                        </li>
+                        <li class="p-2 hover:bg-gray-50">
+                            <span class="font-medium">Guía de mejores prácticas en testing de software</span>
+                            <div class="ml-6 mt-2 text-sm text-gray-600">
+                                Metodologías y procedimientos de pruebas.
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Historial de Cambios -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title">15. Historial de Cambios</h2>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Versión</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descripción</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Autor</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">2024-01-15</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">1.0</td>
+                                    <td class="px-6 py-4">Versión inicial</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">Equipo QA</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">2024-02-01</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">1.1</td>
+                                    <td class="px-6 py-4">Actualización de métricas</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">Equipo QA</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">2024-02-15</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">1.2</td>
+                                    <td class="px-6 py-4">Inclusión de análisis de defectos</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">Equipo QA</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">2024-03-01</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">1.3</td>
+                                    <td class="px-6 py-4">Actualización de estado y métricas</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">Equipo QA</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Próximos Pasos -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="subsection-title">16. Próximos Pasos</h2>
+                    <ol class="list-decimal list-inside space-y-4 text-gray-700">
+                        <li class="p-2 hover:bg-gray-50 rounded">
+                            Completar los 10 casos pendientes
+                        </li>
+                        <li class="p-2 hover:bg-gray-50 rounded">
+                            Revisar defectos identificados
+                        </li>
+                        <li class="p-2 hover:bg-gray-50 rounded">
+                            Planificar y ejecutar el ciclo 6 de pruebas
+                        </li>
+                        <li class="p-2 hover:bg-gray-50 rounded">
+                            Preparar documentación de usuario final
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Anexos -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="subsection-title">17. Anexos</h2>
+                    
+                    <h3 class="subsection-subtitle">Referencias</h3>
+                    <ol class="list-decimal list-inside space-y-4 text-gray-700">
+                        <li class="p-2 hover:bg-gray-50 rounded">
+                            Documentación técnica inicial
+                        </li>
+                        <li class="p-2 hover:bg-gray-50 rounded">
+                            Estándares de seguridad
+                        </li>
+                    </ol>
+                </div>
+            </div>
         </div>
-        <!-- Contenido principal -->
-        <main class="max-w-6xl mx-auto px-4 mb-16">
-          <!-- Cuadrícula de fases -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Fase de Análisis -->
-            <div class="phase-card bg-blue-50 rounded-lg shadow-lg p-6 border-t-4 border-blue-500">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-3">1️⃣</span>
-                <h3 class="text-xl font-bold text-gray-800">Análisis de Requisitos</h3>
-              </div>
-              <div class="space-y-4">
-                <div>
-                  <h4 class="font-semibold text-blue-700">Objetivo</h4>
-                  <p class="text-gray-600">Entender qué necesita el cliente.</p>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-blue-700">Actividades</h4>
-                  <ul class="list-disc list-inside text-gray-600">
-                    <li>Entrevistas con usuarios clave</li>
-                    <li>Definición y priorización de requisitos</li>
-                    <li>Creación de historias de usuario</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-blue-700">Resultado</h4>
-                  <p class="text-gray-600">Documento detallado de requisitos</p>
-                </div>
-              </div>
-            </div>
-            <!-- Fase de Diseño -->
-            <div class="phase-card bg-green-50 rounded-lg shadow-lg p-6 border-t-4 border-green-500">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-3">2️⃣</span>
-                <h3 class="text-xl font-bold text-gray-800">Diseño del Sistema</h3>
-              </div>
-              <div class="space-y-4">
-                <div>
-                  <h4 class="font-semibold text-green-700">Objetivo</h4>
-                  <p class="text-gray-600">Planificar la arquitectura y diseño del software.</p>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-green-700">Actividades</h4>
-                  <ul class="list-disc list-inside text-gray-600">
-                    <li>Diseño de bases de datos</li>
-                    <li>Creación de prototipos y mockups</li>
-                    <li>Elaboración de diagramas UML</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-green-700">Resultado</h4>
-                  <p class="text-gray-600">Prototipos y arquitectura definida</p>
-                </div>
-              </div>
-            </div>
-            <!-- Fase de Desarrollo -->
-            <div class="phase-card bg-yellow-50 rounded-lg shadow-lg p-6 border-t-4 border-yellow-500">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-3">3️⃣</span>
-                <h3 class="text-xl font-bold text-gray-800">Desarrollo</h3>
-              </div>
-              <div class="space-y-4">
-                <div>
-                  <h4 class="font-semibold text-yellow-700">Objetivo</h4>
-                  <p class="text-gray-600">Construir el software mediante la programación.</p>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-yellow-700">Actividades</h4>
-                  <ul class="list-disc list-inside text-gray-600">
-                    <li>Implementación de frontend y backend</li>
-                    <li>Integración de servicios y APIs</li>
-                    <li>Gestión de control de versiones</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-yellow-700">Resultado</h4>
-                  <p class="text-gray-600">Código funcional y documentado</p>
-                </div>
-              </div>
-            </div>
-            <!-- Fase de Pruebas -->
-            <div class="phase-card bg-red-50 rounded-lg shadow-lg p-6 border-t-4 border-red-500">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-3">4️⃣</span>
-                <h3 class="text-xl font-bold text-gray-800">Pruebas</h3>
-              </div>
-              <div class="space-y-4">
-                <div>
-                  <h4 class="font-semibold text-red-700">Objetivo</h4>
-                  <p class="text-gray-600">Detectar y corregir errores antes del despliegue.</p>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-red-700">Actividades</h4>
-                  <ul class="list-disc list-inside text-gray-600">
-                    <li>Pruebas unitarias y funcionales</li>
-                    <li>Simulación de casos de uso reales</li>
-                    <li>Corrección de errores detectados</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-red-700">Resultado</h4>
-                  <p class="text-gray-600">Software estable y validado</p>
-                </div>
-              </div>
-            </div>
-            <!-- Fase de Despliegue -->
-            <div class="phase-card bg-purple-50 rounded-lg shadow-lg p-6 border-t-4 border-purple-500">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-3">5️⃣</span>
-                <h3 class="text-xl font-bold text-gray-800">Despliegue</h3>
-              </div>
-              <div class="space-y-4">
-                <div>
-                  <h4 class="font-semibold text-purple-700">Objetivo</h4>
-                  <p class="text-gray-600">Poner el software en producción.</p>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-purple-700">Actividades</h4>
-                  <ul class="list-disc list-inside text-gray-600">
-                    <li>Configuración del entorno de producción</li>
-                    <li>Pruebas finales en servidores reales</li>
-                    <li>Implementación de medidas de seguridad</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-purple-700">Resultado</h4>
-                  <p class="text-gray-600">Software disponible para el cliente final</p>
-                </div>
-              </div>
-            </div>
-            <!-- Fase de Mantenimiento -->
-            <div class="phase-card bg-gray-50 rounded-lg shadow-lg p-6 border-t-4 border-gray-500">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-3">6️⃣</span>
-                <h3 class="text-xl font-bold text-gray-800">Mantenimiento</h3>
-              </div>
-              <div class="space-y-4">
-                <div>
-                  <h4 class="font-semibold text-gray-700">Objetivo</h4>
-                  <p class="text-gray-600">Garantizar la operación continua del software.</p>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-gray-700">Actividades</h4>
-                  <ul class="list-disc list-inside text-gray-600">
-                    <li>Resolución de problemas reportados</li>
-                    <li>Actualizaciones regulares</li>
-                    <li>Monitoreo del rendimiento</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-gray-700">Resultado</h4>
-                  <p class="text-gray-600">Software estable y actualizado</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Pie de página -->
-          <footer class="text-center py-8 mt-12 text-gray-600 border-t border-gray-200">
-            <p class="font-bold mb-2">Casino La Fortuna</p>
-            <p>Fases del Desarrollo de Software</p>
-          </footer>
-        </main>
-      </div>
-      <hr>
-      <h1 id="4-estado-de-requerimientos">4. Estado de Requerimientos </h1>
-      <p>Esta sección detalla el avance en el cumplimiento de los requerimientos funcionales y no funcionales, proporcionando una visión clara del progreso del proyecto.</p>
-      <ul>
-        <li><strong>Funcionales:</strong> Describen las acciones y funcionalidades que el sistema debe cumplir.</li>
-        <li><strong>No funcionales:</strong> Abarcan aspectos como rendimiento, seguridad y escalabilidad.</li>
-      </ul>
-      <p>El siguiente cuadro muestra el estado actual de los requerimientos:</p>
-      <h2 id="41-requerimientos-funcionales-y-no-funcionales">4.1 Requerimientos Funcionales y No Funcionales </h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Estado</th>
-            <th>Requerimientos Funcionales</th>
-            <th>Requerimientos No Funcionales</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Completado</strong></td>
-            <td>10</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td><strong>En Progreso</strong></td>
-            <td>5</td>
-            <td>3</td>
-          </tr>
-          <tr>
-            <td><strong>Pendiente</strong></td>
-            <td>2</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td><strong>Total</strong></td>
-            <td><strong>17</strong></td>
-            <td><strong>15</strong></td>
-          </tr>
-        </tbody>
-      </table>
-      <h3 id="gráfico-estado-de-requerimientos">Gráfico: Estado de Requerimientos </h3>
-      <p>Representación gráfica del estado actual de los requerimientos funcionales y no funcionales.</p>
-      <img src="https://i.ibb.co/vcWfcnV/estado-de-requerimientos.png" alt="estado-de-requerimientos" width="400">
-      <hr>
-      <h1 id="5-casos-de-prueba">5. Casos de Prueba </h1>
-      <h2 id="51-distribución-de-casos-de-prueba-por-funcionalidad">5.1 Distribución de Casos de Prueba por Funcionalidad </h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Funcionalidad</th>
-            <th>Casos de Prueba</th>
-            <th>Porcentaje</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Registro</td>
-            <td>10</td>
-            <td>16.1%</td>
-          </tr>
-          <tr>
-            <td>Inicio de sesión</td>
-            <td>15</td>
-            <td>24.2%</td>
-          </tr>
-          <tr>
-            <td>Recuperación de contraseña</td>
-            <td>5</td>
-            <td>8.1%</td>
-          </tr>
-          <tr>
-            <td>Panel cliente</td>
-            <td>20</td>
-            <td>32.3%</td>
-          </tr>
-          <tr>
-            <td>Panel operador</td>
-            <td>12</td>
-            <td>19.3%</td>
-          </tr>
-          <tr>
-            <td><strong>Total</strong></td>
-            <td><strong>62</strong></td>
-            <td><strong>100%</strong></td>
-          </tr>
-        </tbody>
-      </table>
-      <h3 id="gráfico-proporción-de-casos-de-prueba">Gráfico: Proporción de Casos de Prueba </h3>
-      <p>El gráfico muestra cómo se distribuyen los casos de prueba diseñados entre las funcionalidades clave.</p>
-      <img src="https://i.ibb.co/nbSP9Rq/proporcion-casos-de-prueba.png" alt="proporcion-casos-de-prueba" width="400">
-      <h2 id="52-estado-de-ejecución-de-casos-de-prueba">5.2 Estado de Ejecución de Casos de Prueba </h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Funcionalidad</th>
-            <th>Casos Ejecutados</th>
-            <th>Casos Pendientes</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Registro</td>
-            <td>8</td>
-            <td>2</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>Inicio de sesión</td>
-            <td>12</td>
-            <td>3</td>
-            <td>15</td>
-          </tr>
-          <tr>
-            <td>Recuperación de contraseña</td>
-            <td>4</td>
-            <td>1</td>
-            <td>5</td>
-          </tr>
-          <tr>
-            <td>Panel cliente</td>
-            <td>18</td>
-            <td>2</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td>Panel operador</td>
-            <td>10</td>
-            <td>2</td>
-            <td>12</td>
-          </tr>
-          <tr>
-            <td><strong>Total</strong></td>
-            <td><strong>52</strong></td>
-            <td><strong>10</strong></td>
-            <td><strong>62</strong></td>
-          </tr>
-        </tbody>
-      </table>
-      <h3 id="gráfico-estado-de-casos-de-prueba">Gráfico: Estado de Casos de Prueba </h3>
-      <p>Este gráfico muestra los casos ejecutados y pendientes por funcionalidad, destacando áreas críticas.</p>
-      <img src="https://i.ibb.co/RyY29p8/estado-casos-de-prueba.png" alt="estado-casos-de-prueba" width="400">
-      <h2 id="53-ciclos-de-prueba">5.3 Ciclos de Prueba </h2>
-      <h3 id="531-evolución-de-los-ciclos-de-prueba">5.3.1 Evolución de los Ciclos de Prueba </h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Ciclo</th>
-            <th>Casos Ejecutados</th>
-            <th>Casos Aprobados</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Ciclo 1</td>
-            <td>20</td>
-            <td>18</td>
-          </tr>
-          <tr>
-            <td>Ciclo 2</td>
-            <td>35</td>
-            <td>30</td>
-          </tr>
-          <tr>
-            <td>Ciclo 3</td>
-            <td>50</td>
-            <td>45</td>
-          </tr>
-          <tr>
-            <td>Ciclo 4</td>
-            <td>70</td>
-            <td>65</td>
-          </tr>
-          <tr>
-            <td>Ciclo 5</td>
-            <td>90</td>
-            <td>85</td>
-          </tr>
-        </tbody>
-      </table>
-      <h3 id="532-gráficos-de-seguimiento">5.3.2 Gráficos de Seguimiento </h3>
-      <ul>
-        <li>Gráfico: Proporción de Casos de Prueba</li>
-        <li>Gráfico: Estado de Casos de Prueba</li>
-        <li>Gráfico: Evolución de Ciclos de Prueba</li>
-      </ul>
-      <img src="https://i.ibb.co/rHj88CB/evolucion-ciclos-prueba.png" alt="evolucion-ciclos-prueba" width="400">
-      <hr>
-      <h1 id="6-métricas-y-seguimiento">6. Métricas y Seguimiento </h1>
-      <h2 id="61-métricas-clave">6.1 Métricas Clave </h2>
-      <ul>
-        <li><strong>Cobertura de Pruebas:</strong> Se ha logrado ejecutar el 83.9% de los casos planificados, lo que indica un progreso significativo en la validación de funcionalidades.</li>
-        <li><strong>Tasa de Aprobación:</strong> Una alta tasa del 94.4% refleja la calidad y estabilidad del sistema en desarrollo.</li>
-        <li><strong>Evolución Positiva:</strong> El incremento constante en los casos aprobados por ciclo sugiere una mejora continua en la calidad del software.</li>
-      </ul>
-      <hr>
-      <h1 id="7-documentación-de-defectos-y-mejoras---casino-la-fortuna">7. Documentación de Defectos y Mejoras - Casino La Fortuna </h1>
-      <h2 id="71-análisis-de-defectos-y-mejoras">7.1 Análisis de Defectos y Mejoras </h2>
-      <h3 id="711-defectos-reportados">7.1.1 Defectos Reportados </h3>
-      <p>Los defectos reportados durante el proceso de pruebas se han clasificado según su severidad, priorizando aquellos que impactan más en la funcionalidad del sistema.</p>
-      <table>
-        <thead>
-          <tr>
-            <th>Severidad</th>
-            <th>Cantidad</th>
-            <th>Descripción</th>
-            <th>Estado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Crítico</td>
-            <td>2</td>
-            <td>Impacto severo en funcionalidad core</td>
-            <td>2 Resueltos</td>
-          </tr>
-          <tr>
-            <td>Mayor</td>
-            <td>8</td>
-            <td>Afecta significativamente la operación</td>
-            <td>6 Resueltos, 2 En Progreso</td>
-          </tr>
-          <tr>
-            <td>Menor</td>
-            <td>15</td>
-            <td>Impacto limitado en funcionalidad</td>
-            <td>10 Resueltos, 5 En Progreso</td>
-          </tr>
-          <tr>
-            <td>Trivial</td>
-            <td>5</td>
-            <td>Problemas cosméticos o mejoras sugeridas</td>
-            <td>3 Resueltos, 2 Pendientes</td>
-          </tr>
-          <tr>
-            <td><strong>Total</strong></td>
-            <td><strong>30</strong></td>
-            <td></td>
-            <td><strong>21 Resueltos (70%)</strong></td>
-          </tr>
-        </tbody>
-      </table>
-      <h4 id="distribución-de-defectos-por-severidad">Distribución de Defectos por Severidad </h4>
-      <p>Este gráfico ilustra la proporción de defectos según su severidad, destacando el enfoque del equipo en resolver defectos críticos y mayores.</p>
-      <img src="https://i.ibb.co/LnLjL9H/defectos-por-severidad.png" alt="defectos-por-severidad" width="400">
-      <h3 id="712-oportunidades-de-mejora-identificadas">7.1.2 Oportunidades de Mejora Identificadas </h3>
-      <p>Se han identificado 45 oportunidades de mejora distribuidas en las siguientes categorías:</p>
-      <table>
-        <thead>
-          <tr>
-            <th>Categoría</th>
-            <th>Cantidad</th>
-            <th>Descripción</th>
-            <th>Prioridad</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Rendimiento</td>
-            <td>12</td>
-            <td>Optimización de tiempos de respuesta y recursos</td>
-            <td>Alta</td>
-          </tr>
-          <tr>
-            <td>Usabilidad</td>
-            <td>8</td>
-            <td>Mejoras en la experiencia de usuario</td>
-            <td>Media</td>
-          </tr>
-          <tr>
-            <td>Seguridad</td>
-            <td>6</td>
-            <td>Fortalecimiento de controles y validaciones</td>
-            <td>Alta</td>
-          </tr>
-          <tr>
-            <td>Funcionalidad</td>
-            <td>15</td>
-            <td>Expansión y refinamiento de características</td>
-            <td>Media</td>
-          </tr>
-          <tr>
-            <td>Documentación</td>
-            <td>4</td>
-            <td>Mejoras en guías y documentación técnica</td>
-            <td>Baja</td>
-          </tr>
-          <tr>
-            <td><strong>Total</strong></td>
-            <td><strong>45</strong></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-      <h4 id="distribución-de-oportunidades-de-mejora">Distribución de Oportunidades de Mejora </h4>
-      <p>El gráfico muestra las áreas prioritarias para la mejora continua, enfocándose en rendimiento y funcionalidad.</p>
-      <img src="https://i.ibb.co/XFLmyCr/oportunidades-mejora.png" alt="oportunidades-mejora" width="400">
-      <h3 id="713-análisis-de-tendencias">7.1.3 Análisis de Tendencias </h3>
-      <h4 id="tasa-de-resolución-de-defectos">Tasa de Resolución de Defectos: </h4>
-      <ul>
-        <li>70% de defectos resueltos (21 de 30)</li>
-        <li>100% de defectos críticos resueltos</li>
-        <li>75% de defectos mayores resueltos</li>
-        <li>67% de defectos menores resueltos</li>
-        <li>60% de defectos triviales resueltos</li>
-      </ul>
-      <h4 id="distribución-de-esfuerzo">Distribución de Esfuerzo: </h4>
-      <ul>
-        <li><strong>40%</strong> en corrección de defectos</li>
-        <li><strong>35%</strong> en implementación de mejoras</li>
-        <li><strong>25%</strong> en prevención y documentación</li>
-      </ul>
-      <h3 id="714-recomendaciones-prioritarias">7.1.4 Recomendaciones Prioritarias </h3>
-      <ol>
-        <li>
-          <p><strong>Corto Plazo:</strong></p>
-          <ul>
-            <li>Resolver los 2 defectos mayores pendientes, identificados como críticos en el gráfico "Defectos por Severidad".</li>
-            <li>Implementar mejoras de rendimiento críticas.</li>
-          </ul>
-        </li>
-        <li>
-          <p><strong>Mediano Plazo:</strong></p>
-          <ul>
-            <li>Abordar defectos menores pendientes.</li>
-            <li>Fortalecer pruebas automatizadas.</li>
-          </ul>
-        </li>
-        <li>
-          <p><strong>Largo Plazo:</strong></p>
-          <ul>
-            <li>Desarrollar un plan de mejora continua.</li>
-            <li>Establecer métricas de calidad preventivas.</li>
-          </ul>
-        </li>
-      </ol>
-      <hr>
-      <h1 id="8-lecciones-aprendidas">8. Lecciones Aprendidas </h1>
-      <h2 id="81-gestión-del-proyecto">8.1 Gestión del Proyecto </h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Área</th>
-            <th>Lección Aprendida</th>
-            <th>Impacto</th>
-            <th>Acciones de Mejora</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Planificación</td>
-            <td>La estimación inicial no incluyó tiempo para pruebas</td>
-            <td>Alto</td>
-            <td>Incluir actividades de testing en el cronograma</td>
-          </tr>
-          <tr>
-            <td>Comunicación</td>
-            <td>Las reuniones frecuentes mejoraron la organización</td>
-            <td>Positivo</td>
-            <td>Mantener la práctica en futuros proyectos</td>
-          </tr>
-          <tr>
-            <td>Desarrollo</td>
-            <td>Pruebas tempranas detectaron errores críticos</td>
-            <td>Positivo</td>
-            <td>Implementar testing desde el inicio</td>
-          </tr>
-          <tr>
-            <td>Documentación</td>
-            <td>La falta de estándares iniciales generó confusión</td>
-            <td>Medio</td>
-            <td>Crear plantillas básicas desde el inicio</td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 id="82-aspectos-técnicos">8.2 Aspectos Técnicos </h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Aspecto</th>
-            <th>Aprendizaje</th>
-            <th>Recomendación</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Modularidad</td>
-            <td>Diseñar módulos pequeños facilitó la implementación</td>
-            <td>Seguir el enfoque modular</td>
-          </tr>
-          <tr>
-            <td>Base de Datos</td>
-            <td>Consultas mal optimizadas afectaron el rendimiento</td>
-            <td>Revisar y optimizar consultas</td>
-          </tr>
-          <tr>
-            <td>Seguridad</td>
-            <td>Validaciones básicas evitaron accesos no deseados</td>
-            <td>Integrar pruebas de seguridad</td>
-          </tr>
-          <tr>
-            <td>Interfaz</td>
-            <td>Diseños simples ayudaron a usuarios finales</td>
-            <td>Priorizar usabilidad</td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 id="83-mejores-prácticas-identificadas">8.3 Mejores Prácticas Identificadas </h2>
-      <ol>
-        <li>
-          <p><strong>Desarrollo:</strong></p>
-          <ul>
-            <li>Dividir tareas grandes en entregas pequeñas</li>
-            <li>Usar un control de versiones como Git para rastrear cambios</li>
-            <li>Mantener el código organizado y documentado</li>
-          </ul>
-        </li>
-        <li>
-          <p><strong>Testing:</strong></p>
-          <ul>
-            <li>Realizar pruebas manuales iniciales en módulos clave</li>
-            <li>Validar cada funcionalidad antes de avanzar al siguiente módulo</li>
-            <li>Documentar los resultados de las pruebas</li>
-          </ul>
-        </li>
-        <li>
-          <p><strong>Gestión:</strong></p>
-          <ul>
-            <li>Documentar decisiones importantes</li>
-            <li>Asignar tareas claras a cada miembro del equipo</li>
-            <li>Mantener una comunicación constante</li>
-          </ul>
-        </li>
-      </ol>
-      <hr>
-      <h1 id="9-gestión-de-riesgos">9. Gestión de Riesgos </h1>
-      <h2 id="91-riesgos-materializados">9.1 Riesgos Materializados </h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Riesgo</th>
-            <th>Impacto</th>
-            <th>Plan de Contingencia Activado</th>
-            <th>Resultado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Retraso en tareas</td>
-            <td>Medio</td>
-            <td>Dividir tareas complejas en subtareas</td>
-            <td>Mitigado</td>
-          </tr>
-          <tr>
-            <td>Errores en validaciones</td>
-            <td>Alto</td>
-            <td>Revisar requerimientos y validar diseño</td>
-            <td>Resuelto</td>
-          </tr>
-          <tr>
-            <td>Problemas de integración</td>
-            <td>Alto</td>
-            <td>Uso de documentación y pruebas adicionales</td>
-            <td>En Progreso</td>
-          </tr>
-        </tbody>
-      </table>
-      <hr>
-      <h1 id="10-herramientas-utilizadas">10. Herramientas Utilizadas </h1>
-      <p>El desarrollo del proyecto se apoyó en herramientas que facilitaron el diseño, implementación y pruebas. Las herramientas principales incluyen:</p>
-      <h2 id="101-desarrollo-y-control-de-versiones">10.1 Desarrollo y Control de Versiones </h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Categoría</th>
-            <th>Herramienta</th>
-            <th>Uso</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>IDE</td>
-            <td>Visual Studio Code</td>
-            <td>Desarrollo del frontend y backend</td>
-          </tr>
-          <tr>
-            <td>Control de Versiones</td>
-            <td>Git</td>
-            <td>Rastreo de cambios en el código</td>
-          </tr>
-          <tr>
-            <td>Repositorio</td>
-            <td>GitHub</td>
-            <td>Alojamiento del proyecto</td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 id="102-testing-y-calidad">10.2 Testing y Calidad </h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Categoría</th>
-            <th>Herramienta</th>
-            <th>Uso</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Testing Manual</td>
-            <td>Navegadores</td>
-            <td>Validación de interfaces</td>
-          </tr>
-          <tr>
-            <td>Documentación</td>
-            <td>Google Docs</td>
-            <td>Registro de pruebas</td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 id="103-gestión-y-documentación">10.3 Gestión y Documentación </h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Categoría</th>
-            <th>Herramienta</th>
-            <th>Uso</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Gestión de Tareas</td>
-            <td>Trello</td>
-            <td>Seguimiento de actividades</td>
-          </tr>
-          <tr>
-            <td>Comunicación</td>
-            <td>WhatsApp</td>
-            <td>Coordinación rápida entre el equipo</td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 id="104-métricas-de-uso-de-herramientas">10.4 Métricas de Uso de Herramientas </h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Herramienta</th>
-            <th>Usuarios Activos</th>
-            <th>Frecuencia de Uso</th>
-            <th>Satisfacción</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>VS Code</td>
-            <td>3</td>
-            <td>Diaria</td>
-            <td>90%</td>
-          </tr>
-          <tr>
-            <td>GitHub</td>
-            <td>3</td>
-            <td>Semanal</td>
-            <td>85%</td>
-          </tr>
-          <tr>
-            <td>Trello</td>
-            <td>3</td>
-            <td>Semanal</td>
-            <td>80%</td>
-          </tr>
-        </tbody>
-      </table>
-      <hr>
-      <h1 id="11-recomendaciones">11. Recomendaciones </h1>
-      <h2 id="corto-plazo">Corto Plazo </h2>
-      <ul>
-        <li>Mejorar la planificación inicial para incluir pruebas</li>
-        <li>Revisar los módulos de seguridad y realizar ajustes básicos</li>
-        <li>Establecer estándares de documentación básicos</li>
-      </ul>
-      <h2 id="mediano-plazo">Mediano Plazo </h2>
-      <ul>
-        <li>Implementar una plantilla estándar para la documentación</li>
-        <li>Automatizar tareas repetitivas donde sea posible</li>
-        <li>Mejorar las prácticas de control de versiones</li>
-      </ul>
-      <h2 id="largo-plazo">Largo Plazo </h2>
-      <ul>
-        <li>Aprender a usar herramientas más avanzadas como Jenkins para CI/CD</li>
-        <li>Explorar herramientas de monitoreo y métricas</li>
-        <li>Implementar prácticas de desarrollo más avanzadas</li>
-      </ul>
-      <hr>
-      <h1 id="12-conclusiones-del-aprendizaje">12. Conclusiones del Aprendizaje </h1>
-      <ol>
-        <li>
-          <p><strong>Logros Principales:</strong></p>
-          <ul>
-            <li>Implementación exitosa de un sistema modular</li>
-            <li>Desarrollo de habilidades en control de versiones</li>
-            <li>Mejora en la organización y documentación</li>
-          </ul>
-        </li>
-        <li>
-          <p><strong>Áreas de Mejora:</strong></p>
-          <ul>
-            <li>Profundizar en prácticas de testing</li>
-            <li>Mejorar la estimación de tiempos</li>
-            <li>Fortalecer conocimientos en seguridad</li>
-          </ul>
-        </li>
-        <li>
-          <p><strong>Próximos Pasos en el Aprendizaje:</strong></p>
-          <ul>
-            <li>Explorar frameworks de testing</li>
-            <li>Estudiar metodologías ágiles</li>
-            <li>Practicar desarrollo basado en pruebas</li>
-          </ul>
-        </li>
-      </ol>
-      <hr>
-      <h1 id="13-glosario-de-términos">13. Glosario de Términos </h1>
-      <h2 id="términos-de-desarrollo">Términos de Desarrollo </h2>
-      <h3 id="rad-rapid-application-development">RAD (Rapid Application Development) </h3>
-      <p>Metodología de desarrollo ágil que enfatiza el desarrollo rápido y la entrega iterativa de prototipos funcionales. Permite obtener retroalimentación temprana del cliente y realizar ajustes continuos durante el proceso de desarrollo.</p>
-      <h3 id="crud-create-read-update-delete">CRUD (Create, Read, Update, Delete) </h3>
-      <p>Operaciones básicas de persistencia de datos que debe realizar un sistema de información:</p>
-      <ul>
-        <li>Create: Crear o añadir nuevos registros</li>
-        <li>Read: Leer o recuperar datos existentes</li>
-        <li>Update: Actualizar o modificar registros</li>
-        <li>Delete: Eliminar o borrar datos</li>
-      </ul>
-      <h3 id="frontend">Frontend </h3>
-      <p>Parte de la aplicación con la que interactúa directamente el usuario. Incluye la interfaz gráfica, formularios y todos los elementos visuales de la aplicación.</p>
-      <h3 id="backend">Backend </h3>
-      <p>Parte del sistema que procesa la lógica de negocio y gestiona los datos. Opera en el servidor y maneja las solicitudes del frontend, procesando y almacenando información en la base de datos.</p>
-      <h2 id="términos-de-calidad-y-testing">Términos de Calidad y Testing </h2>
-      <h3 id="defecto-crítico">Defecto crítico </h3>
-      <p>Error que impide completamente la operación del sistema, causando fallos que hacen imposible el uso de funcionalidades core del software.</p>
-      <h3 id="defecto-mayor">Defecto mayor </h3>
-      <p>Error que afecta significativamente la funcionalidad pero permite operación limitada del sistema. Impacta severamente la experiencia del usuario pero no detiene completamente la operación.</p>
-      <h3 id="defecto-menor">Defecto menor </h3>
-      <p>Error que no impide la operación principal del sistema. Puede causar inconvenientes menores pero no afecta las funcionalidades principales.</p>
-      <h3 id="defecto-trivial">Defecto trivial </h3>
-      <p>Problema cosmético o de baja prioridad que no afecta la funcionalidad. Generalmente relacionado con la interfaz de usuario o elementos no críticos.</p>
-      <h2 id="términos-específicos-del-proyecto">Términos Específicos del Proyecto </h2>
-      <h3 id="panel-cliente">Panel cliente </h3>
-      <p>Interfaz específica para usuarios finales del Casino la Fortuna, diseñada para facilitar las operaciones cotidianas de los clientes del establecimiento.</p>
-      <h3 id="panel-operador">Panel operador </h3>
-      <p>Interfaz administrativa para gestión del sistema, que permite el control y supervisión de todas las operaciones realizadas en la plataforma.</p>
-      <h2 id="herramientas">Herramientas </h2>
-      <h3 id="git">Git </h3>
-      <p>Sistema de control de versiones distribuido que permite el seguimiento de cambios en el código fuente durante el desarrollo de software.</p>
-      <h3 id="visual-studio-code">Visual Studio Code </h3>
-      <p>IDE (Entorno de Desarrollo Integrado) utilizado para el desarrollo del frontend y backend del proyecto.</p>
-      <hr>
-      <h1 id="14-referencias">14. Referencias </h1>
-      <ol>
-        <li>Documentación técnica inicial del proyecto.</li>
-        <li>Normativas contables aplicables.</li>
-        <li>Estándares de calidad ISO/IEC 25010.</li>
-        <li>Guía de mejores prácticas en testing de software.</li>
-      </ol>
-      <hr>
-      <h1 id="15-historial-de-cambios">15. Historial de Cambios </h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Fecha</th>
-            <th>Versión</th>
-            <th>Descripción</th>
-            <th>Autor</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>2024-01-15</td>
-            <td>1.0</td>
-            <td>Versión inicial</td>
-            <td>Equipo QA</td>
-          </tr>
-          <tr>
-            <td>2024-02-01</td>
-            <td>1.1</td>
-            <td>Actualización de métricas</td>
-            <td>Equipo QA</td>
-          </tr>
-          <tr>
-            <td>2024-02-15</td>
-            <td>1.2</td>
-            <td>Inclusión de análisis de defectos</td>
-            <td>Equipo QA</td>
-          </tr>
-          <tr>
-            <td>2024-03-01</td>
-            <td>1.3</td>
-            <td>Actualización de estado y métricas</td>
-            <td>Equipo QA</td>
-          </tr>
-        </tbody>
-      </table>
-      <hr>
-      <h1 id="16-próximos-pasos">16. Próximos Pasos </h1>
-      <ol>
-        <li>Completar los 10 casos pendientes.</li>
-        <li>Revisar defectos identificados.</li>
-        <li>Planificar y ejecutar el ciclo 6 de pruebas.</li>
-        <li>Preparar documentación de usuario final.</li>
-      </ol>
-      <hr>
-      <h1 id="17-anexos">17. Anexos </h1>
-      <h2 id="referencias">Referencias </h2>
-      <ol>
-        <li>Documentación técnica inicial.</li>
-        <li>Estándares de seguridad.</li>
-      </ol>
-    </div>
-  </body>
+    </body>
 </html>

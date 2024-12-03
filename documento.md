@@ -126,19 +126,6 @@ Para una mejor comprensión, se presenta una infografía que resume estas etapas
     <header class="team-section text-white py-12 px-4">
         <div class="max-w-5xl mx-auto text-center">
             <h1 class="text-4xl font-bold mb-4">Fases del Desarrollo de Software</h1>
-            <h2 class="text-2xl font-light mb-8">Modelo Metodológico General</h2>
-            <div class="mt-8 space-y-2">
-                <p class="text-lg italic">Equipo de Desarrollo:</p>
-                <p class="text-xl">
-                    Penélope Noreña Ramos • Hernán Darío Pérez Higuita • William Pérez Muñoz
-                </p>
-                <div class="mt-4">
-                    <p class="font-bold text-lg">Servicio Nacional de Aprendizaje - SENA</p>
-                    <p>Centro de Gestión de Mercados, Logística y Tecnologías de la Información</p>
-                    <p>Regional Distrito Capital</p>
-                    <p>Ficha: 2758315</p>
-                </div>
-            </div>
         </div>
     </header>
     <!-- Introducción -->
@@ -305,8 +292,6 @@ Para una mejor comprensión, se presenta una infografía que resume estas etapas
         <!-- Pie de página -->
         <footer class="text-center py-8 mt-12 text-gray-600 border-t border-gray-200">
             <p class="font-bold mb-2">Casino La Fortuna</p>
-            <p>Fases del Desarrollo de Software</p>
-            <p class="mt-2">© 2024 - Todos los derechos reservados</p>
         </footer>
     </main>
 </body>
@@ -316,7 +301,7 @@ Para una mejor comprensión, se presenta una infografía que resume estas etapas
 
 ---
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
 
 # 4. Estado de Requerimientos
 
